@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f7fa;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #00a0c4;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #d1d3e2;
+            padding: 8px 0;
+            outline: none;
+            background-color: transparent;
+            font-size: 1em;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: #666;
+            font-size: 0.9em;
+            pointer-events: none;
+            transition: 0.2s ease all;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label {
+            top: -10px;
+            font-size: 0.8em;
+            color: #333;
+        }
+
+        .required {
+            color: red;
+            margin-left: 4px;
+        }
+
+        #terms {
+            text-align: left;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        #registerButton {
+            width: 100%;
+            padding: 12px;
+            background-color: #c3c6d1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: not-allowed;
+            transition: background-color 0.2s;
+        }
+
+        #registerButton.enabled {
+            background-color: #4e73df;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+
+<div class="container">
+    <div style="width:100%;text-align:center; border-bottom: 1px solid #ccc;">
+        <div class="top-logo">
+            <img src="../logowhite.webp" alt="" srcset="" style="height: 10vh;">
+        </div>
+    </div>
+    
+    <h2>Create your <strong>Affiliate</strong> account</h2>
+    
+    <form id="registrationForm">
+        <div class="form-group">
+            <input type="text" id="username" placeholder=" " required>
+            <label for="username">Username<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="firstName" placeholder=" " required>
+            <label for="firstName">First Name<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="lastName" placeholder=" " required>
+            <label for="lastName">Last Name<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email Address<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" id="confirmEmail" placeholder=" " required>
+            <label for="confirmEmail">Confirm Email Address<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="password" id="password" placeholder=" " required>
+            <label for="password">Password<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="password" id="confirmPassword" placeholder=" " required>
+            <label for="confirmPassword">Confirm Password<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="tel" id="phone" placeholder=" " required>
+            <label for="phone">Phone<span class="required">*</span></label>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="skype" placeholder=" ">
+            <label for="skype">Skype</label>
+        </div>
+        
+        <div id="terms">
+            <input type="checkbox" id="termsCheckbox" onclick="toggleRegisterButton()"> 
+            <label for="termsCheckbox">I agree to the terms & conditions</label>
+        </div>
+        
+        <button type="submit" id="registerButton" disabled>Register</button>
+    </form>
+</div>
+
+<script>
+    function toggleRegisterButton() {
+        const checkbox = document.getElementById('termsCheckbox');
+        const registerButton = document.getElementById('registerButton');
+        if (checkbox.checked) {
+            registerButton.disabled = false;
+            registerButton.classList.add("enabled");
+        } else {
+            registerButton.disabled = true;
+            registerButton.classList.remove("enabled");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>20Bets Partners</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles_dash.css' %}">
+  </head>
+  <body>
+    <style>
+      body{
+        font-family: 'Futura Cyrillic Book' ,Arial, Helvetica, sans-serif;
+      }
+    </style>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header" style="background-color: black;">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          
+          <button style="
+          text-align: center; 
+          padding: 0.5em 1em; 
+          border-width: 1px; 
+          border-style: solid; 
+          text-transform: uppercase; 
+          border-radius: 5px; 
+          border-color: rgb(46, 46, 46); 
+          background-image: linear-gradient(117deg, #11a51b, #00c3b6); 
+          transition: 0.3s; 
+          font-size: 0.875em; 
+          line-height: 16.1px; 
+          color: rgb(30, 30, 30); /* Black text color */
+          font-family: Arial, sans-serif; 
+          font-weight: bold; 
+          letter-spacing: 0.5px; 
+          display: inline-flex; 
+          align-items: center; 
+          cursor: pointer;
+          white-space: nowrap; /* Ensures text stays on one line */
+        "
+        aria-hidden="true" focusable="false">
+          <svg viewBox="0 0 512 512" height="14" width="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px;">
+            <path fill="currentColor" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path>
+          </svg>
+          Refresh Statistics
+        </button>
+        
+        <style>
+          /* Responsive styling for mobile devices */
+          @media (max-width: 600px) {
+            button {
+              padding: 0.4em 0.6em;
+              font-size: 0.5em !important; /* Smaller font size */
+              line-height: 1.2; /* Adjusted line height */
+              white-space: nowrap; /* Ensure text fits in one line */
+            }
+            button svg {
+              height: 10px; /* Smaller icon size */
+              width: 10px;
+              margin-right: 3px;
+            }
+          }
+        </style>
+        
+
+          
+          
+        </div>
+      
+
+
+
+
+
+
+        <div class="header-right" style="position: relative;">
+          <span class="material-icons-outlined" onclick="toggleDropdown()" style="cursor: pointer;">account_circle</span><span onclick="toggleDropdown()" style="cursor: pointer;">  Aff. ID: 1678</span>
+          
+          <!-- Dropdown menu -->
+          <div id="dropdownMenu" style="
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            right: 0; 
+            background-color: #333; 
+            color: #fff; 
+            width: 180px; 
+            border-radius: 5px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+            padding: 10px;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+            opacity: 0;">
+            
+            <div style="padding: 10px; font-size: 0.875em; color: #bbb;"><span class="material-icons-outlined">person</span>Aff. ID: 1678</div>
+            <hr style="border: 0.5px solid #444;">
+            <a href="#" style="
+              display: block; 
+              padding: 10px; 
+              color: #fff; 
+              text-decoration: none; 
+              font-weight: bold;
+              text-align: left;
+              transition: background 0.3s;
+              border-radius: 4px;">
+             <span class="material-icons-outlined">logout</span> Logout
+            </a>
+          </div>
+        </div>
+        
+        <script>
+          function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "none" || dropdown.style.opacity === "0") {
+              dropdown.style.display = "block";
+              setTimeout(() => { dropdown.style.opacity = "1"; }, 10); // Smooth transition
+            } else {
+              dropdown.style.opacity = "0";
+              setTimeout(() => { dropdown.style.display = "none"; }, 300);
+            }
+          }
+        
+          // Close dropdown if clicked outside
+          window.addEventListener("click", function(event) {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (!event.target.closest(".header-right")) {
+              dropdown.style.opacity = "0";
+              setTimeout(() => { dropdown.style.display = "none"; }, 300);
+            }
+          });
+        </script>
+
+
+
+
+
+
+      </header>
+      <!-- End Header -->
+<style>
+  #sidebar {
+  width: 250px;
+  /* Other styles for sidebar */
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgb(42, 42, 42); /* Black background for title */
+  color: white;
+  
+}
+
+.sidebar-heading {
+  background-color: #10B470;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list-item {
+  padding: 10px 15px;
+}
+
+.sidebar-list-item a {
+  color: rgb(78, 78, 78);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-list-item a:hover {
+  color: #007bff;
+}
+
+.material-icons-outlined {
+  margin-right: 8px;
+}
+
+</style>
+         <!-- Sidebar -->
+<aside id="sidebar">
+    <div class="sidebar-title">
+      <div class="sidebar-brand">
+        <span class="material-icons-outlined"></span> 20Bets Partners
+      </div>
+      <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+    </div>
+  
+    <h2 class="sidebar-heading">MAIN MENU</h2>
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item">
+        <a href="{% url 'statistics' %}" target="_blank">
+          <span class="material-icons-outlined">house</span> Main Page
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'webpages' %}" target="_blank">
+          <span class="material-icons-outlined">account_balance_wallet</span> Webpages
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'commission_structure' %}" target="_blank">
+          <span class="material-icons-outlined">paid</span> Commission
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'payment_history' %}" target="_blank">
+          <span class="material-icons-outlined">payments</span> Payment History
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'account' %}" target="_blank">
+          <span class="material-icons-outlined">person</span> Account
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'contacts' %}" target="_blank">
+          <span class="material-icons-outlined">mail</span> Contacts
+        </a>
+      </li>
+    </ul>
+  
+    <h2 class="sidebar-heading">MARKETING</h2>
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item">
+        <a href="{% url 'aff_links' %}" target="_blank">
+          <span class="material-icons-outlined">open_in_new</span> Affiliate Link
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'promocode' %}" target="_blank">
+          <span class="material-icons-outlined">password</span> PromoCode
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'media' %}" target="_blank">
+          <span class="material-icons-outlined">campaign</span> Media
+        </a>
+      </li>
+    </ul>
+  
+    <h2 class="sidebar-heading">REPORTS</h2>
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item">
+        <a href="{% url 'summary' %}" target="_blank">
+          <span class="material-icons-outlined">analytics</span> Summary
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'full_report' %}" target="_blank">
+          <span class="material-icons-outlined">query_stats</span> Full Report
+        </a>
+      </li>
+      
+      <li class="sidebar-list-item">
+        <a href="{% url 'playerreport' %}" target="_blank">
+          <span class="material-icons-outlined">manage_accounts</span> Player Report
+        </a>
+      </li>
+      
+    </ul>
+  </aside>
+
+
+
+
+
+
+
+
+<main class="main-container">
+
+      <!-- User Info -->
+<div style="font-weight: bold; margin-bottom: 10px; color: #10B470;">
+  {% for i in x %}
+    User: {{i.username}}
+  {% endfor %}
+  </div>
+  
+  <!-- Contact Details -->
+  {% for i in x %}
+  <div style="border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-bottom: 20px; width: 30%; display: inline-block; vertical-align: top;">
+    <h3 style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Contact details</h3>
+    <label>First name *</label>
+    <input type="text" value="{{i.first_name}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>Last name *</label>
+    <input type="text" value="{{i.last_name}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>Phone number</label>
+    <input type="text" value="{{i.phone}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>Telegram</label>
+    <select style="width: 100%; padding: 5px; margin-bottom: 10px;">
+      <option>Telegram</option>
+    </select>
+    <label>Telegram ID</label>
+    <input type="text" value="{{i.telegram}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>Country</label>
+    <select style="width: 100%; padding: 5px; margin-bottom: 10px;">
+      <option>India</option>
+    </select>
+    <label>Notifications language</label>
+    <select style="width: 100%; padding: 5px; margin-bottom: 10px;">
+      <option>English</option>
+    </select>
+    <button style="width: 100%; padding: 10px; background-color: #10B470; color: white; font-weight: bold; border: none; cursor: pointer;">SAVE CHANGES</button>
+  </div>
+
+  
+  <!-- Payment Details -->
+  <div style="border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-bottom: 20px; width: 30%; display: inline-block; vertical-align: top; margin-left: 10px;">
+    <h3 style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Payment details</h3>
+    <label>Preferred payment method:</label>
+    <input type="text" value="{{i.preferred_payment_method}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>User account</label>
+    <input type="text" value="{{i.user_account}}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <p style="font-size: 0.9em; color: #666;">* to change your payment details, please contact Partner Support.</p>
+  </div>
+   {% endfor %}
+  
+  <!-- Change Password -->
+  <div style="border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-bottom: 20px; width: 30%; display: inline-block; vertical-align: top; margin-left: 10px;">
+    <h3 style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Change password</h3>
+    <label>Old password</label>
+    <input type="password" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>New password</label>
+    <input type="password" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <label>Repeat new password</label>
+    <input type="password" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+    <button style="width: 100%; padding: 10px; background-color: #10B470; color: white; font-weight: bold; border: none; cursor: pointer;">CHANGE PASSWORD</button>
+  </div>
+  
+  <!-- Subscriptions -->
+  <div style="border: 1px solid #ddd; border-radius: 4px; padding: 15px; width: 45%; display: inline-block; vertical-align: top; margin-right: 10px;">
+    <h3 style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Subscriptions</h3>
+    <p style="font-size: 1.2em; color: #333; text-align: center; font-weight: bold;">No information</p>
+  </div>
+  
+  <!-- Two-Factor Authentication -->
+  <div style="border: 1px solid #ddd; border-radius: 4px; padding: 15px; width: 45%; display: inline-block; vertical-align: top;">
+    <h3 style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Manage two factor authentication</h3>
+    <p style="font-size: 1em; color: #666; margin-bottom: 10px;">Google Authenticator enabled: No</p>
+    <button style="width: 100%; padding: 10px; background-color: #10B470; color: white; font-weight: bold; border: none; cursor: pointer;">ENABLE</button>
+  </div>
+  
+  </main>
+  
+
+
+      
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>

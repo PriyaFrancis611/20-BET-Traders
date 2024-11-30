@@ -1,0 +1,125 @@
+/*
+* Prefixed by:
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+.reviews-footer {
+    margin-top: auto !important;
+    /* margin-top: -15% !important; */
+    z-index: -1;
+}
+
+.reviews-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1800px;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.reviews-title {
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 103px;
+    text-align: start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    text-transform: uppercase;
+    margin-bottom: 70px;
+}
+
+.review-logo {
+    max-width: 250px;
+    width: 100%;
+}
+
+.reviews-list {
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-grid-columns: 1fr 50px 1fr 50px 1fr 50px 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: 1fr 50px 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+.reviews-list > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+
+.reviews-list > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+
+.reviews-list > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+
+.reviews-list > *:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+}
+
+.reviews-list > *:nth-child(5) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+
+.reviews-list > *:nth-child(6) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+}
+
+.reviews-list > *:nth-child(7) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+}
+
+.reviews-list > *:nth-child(8) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 7;
+}
+
+.single-review {
+    max-width: 392px;
+    min-width: 177px;
+    width: 100%;
+    background: -o-linear-gradient(254.87deg, rgba(180, 180, 180, 0.4) 30.64%, rgba(180, 180, 180, 0.18) 103.44%);
+    background: linear-gradient(195.13deg, rgba(180, 180, 180, 0.4) 30.64%, rgba(180, 180, 180, 0.18) 103.44%);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 0;
+    padding: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-content {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150.2%;
+    text-transform: uppercase;
+    color: #fff;
+}

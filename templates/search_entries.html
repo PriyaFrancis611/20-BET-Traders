@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Daily Entries</title>
+</head>
+<body>
+    <h1>Search Daily Entries</h1>
+
+    <!-- Search Form -->
+    <form method="get" action="">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" value="{{ query_date|default:'' }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display Results -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+                <th>Available to Withdraw</th>
+                <th>Yesterday</th>
+                <th>Current Month</th>
+                <th>Thirty Days</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if daily_entries %}
+                {% for entry in daily_entries %}
+                <tr>
+                    <td>{{ entry.main_page.user.username }}</td>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.available_to_withdraw }}</td>
+                    <td>{{ entry.yesterday }}</td>
+                    <td>{{ entry.current_month }}</td>
+                    <td>{{ entry.thirty_days }}</td>
+                    <td>{{ entry.total }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7">No entries found for the selected date.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

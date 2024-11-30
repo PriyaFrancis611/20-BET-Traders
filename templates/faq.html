@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Medium.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Bold.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Light.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
+    <script type="module" src="{% static 'js/translates.js' %}"></script>
+    <script type="module" src="{% static 'js/translations_en.js' %}"></script>
+    <script type="module" src="{% static 'js/translations_ru.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link
+      type="image/x-icon"
+      rel="shortcut icon"
+      href="{% static 'images/32x32.ico' %}"
+    />
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="{% static 'images/16x16.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="{% static 'images/32x32.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+      href="{% static 'images/96x96.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="120x120"
+      rel="icon"
+      href="{% static 'images/120x120.png' %}"
+    />
+
+    <title>20Bet PARTNERS | FAQ</title>
+  </head>
+
+  <body class="">
+    <div class="wrapper faq-wrapper">
+      <div class="go-to-top-button"></div>
+      <header class="header faq-header">
+        <div class="header-nav">
+          <a href="{% url 'index' %}" class="header-logo"
+            ><img src="{% static 'images/logowhite.webp' %}" alt=""
+          /></a>
+          <nav class="header-menu">
+            <a href="{% url 'index' %}" class="header-menu-item" data-translate="about_product"
+              >about us</a
+            >
+            <a
+              href="{% url 'index' %}"
+              class="header-menu-item"
+              data-translate="conditions"
+              >terms</a
+            >
+            <a
+              href="{% url 'faq' %}"
+              class="header-menu-item active-item"
+              data-translate="faq"
+              >faq</a
+            >
+            <a href="{% url 'faq' %}" class="header-menu-item" data-translate="reviews"
+              >testimonials</a
+            >
+            <a
+              href="{% url 'index' %}"
+              class="header-menu-item"
+              data-translate="contacts"
+              >contacts</a
+            >
+          </nav>
+          <div class="header-buttons">
+            <a
+              href="{% url 'register1' %}"
+              target="_blank"
+              ><button
+                class="header-registration-button"
+                data-translate="registration"
+              >
+                registration
+              </button></a
+            >
+            <a href="{% url 'login1' %}" target="_blank"
+              ><button class="header-login-button" data-translate="log_in">
+                login
+              </button></a
+            >
+          </div>
+          <div class="header-langs languages-list">
+            <div class="current-language">
+              <img
+                src="{% static 'images/lang-arrow.svg' %}"
+                alt=""
+                class="lang-arrow"
+              />
+              <span class="cur-lang">EN</span>
+            </div>
+            <div class="sub-languages-list">
+              <a class="language" href="">EN</a>
+              <a class="language" href="">RU</a>
+            </div>
+          </div>
+          <div class="burger-menu">
+            <div class="menu-icon">
+              <span></span>
+            </div>
+            <nav class="menu-body">
+              <nav class="menu-list">
+                <ul>
+                  <li class="menu-item team-button">
+                    <a href="{% url 'index' %}" data-translate="about_product">about us</a>
+                  </li>
+                  <li class="menu-item vac-button">
+                    <a href="{% url 'index' %}" data-translate="conditions">terms</a>
+                  </li>
+                  <li class="menu-item benefits-button">
+                    <a href="{% url 'faq' %}" data-translate="faq">faq</a>
+                  </li>
+                  <li class="menu-item about-us-button">
+                    <a href="{% url 'faq' %}" data-translate="reviews">testimonials</a>
+                  </li>
+                  <li class="menu-item benefits-button">
+                    <a href="{% url 'index' %}" data-translate="contacts">contacts</a>
+                  </li>
+                  <li class="menu-item">
+                    <div
+                      class="header-langs languages-list header-langs-burger"
+                    >
+                      <div class="current-language">
+                        <span class="cur-lang cur-lang-burger">EN</span>
+                        <img
+                          src="{% static 'images/lang-arrow.svg' %}"
+                          alt=""
+                          class="lang-arrow lang-arrow-burger"
+                        />
+                      </div>
+                      <div class="sub-languages-list sub-languages-list-burger">
+                        <a class="language" href="">EN</a>
+                        <a class="language" href="">RU</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </nav>
+          </div>
+        </div>
+        <div class="faq-header-content">
+          <div class="title" data-translate="faq_title">
+            The most asked question “What is the retention rate?”.<br />
+            We answer right away!
+          </div>
+          <div class="subtitle" data-translate="faq_subtitle">
+            The ratio of the amount of deposits to the amount of bets —
+            <span>1х13</span>
+          </div>
+          <div class="subtitle" data-translate="faq_titlesub">
+            Reg2Dep conversion = <span>Up to 40%</span>
+          </div>
+          <div class="instruments-block">
+            <div class="instruments-list">
+              <div class="title" data-translate="faq_instr_title">
+                Our retention tools:
+              </div>
+              <ul data-translate="faq_instrs">
+                <li>Call center</li>
+                <li>VIP managers</li>
+                <li>Support department</li>
+                <li>E-mail</li>
+                <li>Push</li>
+                <li>In-app</li>
+                <li>SMS</li>
+                <li>Regular draws</li>
+                <li>Bonuses</li>
+                <li>Promotions</li>
+              </ul>
+            </div>
+            <img
+              src="{% static 'images/faq-character.webp' %}"
+              alt=""
+              class="faq-character"
+            />
+          </div>
+        </div>
+      </header>
+      <main class="main faq-main">
+        <div class="faq-tabs-block">
+          <div class="title" data-translate="faq_main_title1">
+            General Questions
+          </div>
+          <div class="faq-tabs top-faq-tabs">
+            <div class="left-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title1">
+                  <span></span>What is the 20Bet Partners affiliate program?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text1">
+                    20Bet Partners is a leading direct advertiser for the
+                    iGaming brand. We provide the best conditions for monetizing
+                    your traffic in the Betting &amp; Casino verticals.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title2">
+                  <span></span>How can I become a partner?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text2">
+                    To become a partner, you need to have any traffic source
+                    except for fraud and incentive traffic. After that, you can
+                    register on our website, and our managers will guide you
+                    through the next steps.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title3">
+                  <span></span>What payment models do you work with?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text3">
+                    We offer Revenue Share, Hybrid, CPA, and Flat Fee, but we
+                    are happy to discuss other payment formats.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="right-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title4">
+                  <span></span>Can I work with you on a CPA basis?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text4">
+                    Yes. We provide a test cap, and then we review your traffic.
+                    If it passes the qualification - we will increase budgets
+                    and volume.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title5">
+                  <span></span>What does player qualification mean?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text5">
+                    Player qualification (only for partners with СРА traffic)
+                    correspondence of the player to our statistical
+                    expectations, such as minimum deposit, activity of the
+                    player, participation in the bonus program, repeated
+                    deposits, etc. Qualification depends on the offer given to
+                    you.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title6">
+                  <span></span>How does the priority system work for player
+                  attribution to a partner?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text6">
+                    The promo code entered in the registration form has a higher
+                    priority than clicking on an affiliate link.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <img src="{% static 'images/coins1.webp' %}" alt="" class="coins1" />
+            <img src="{% static 'images/coins2.webp' %}" alt="" class="coins2" />
+          </div>
+        </div>
+        <div class="faq-tabs-block">
+          <div class="title" data-translate="faq_main_title2">
+            About Product
+          </div>
+          <div class="faq-tabs">
+            <div class="left-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title7">
+                  <span></span>Can I do API integration with your affiliate
+                  program?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text7">
+                    Yes, you can create an API key in your personal account to
+                    integrate with any of your systems. Our technical
+                    specialists will always be happy to help in case of
+                    difficulties.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title8">
+                  <span></span>Do you have two-factor authentication?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text8">
+                    Yes, with Google Authenticator. You can set it up yourself
+                    after activating your account.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title9">
+                  <span></span>What is the minimum payout and how do I find out
+                  my balance?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text9">
+                    The minimum payout is 50 USD. The current account balance is
+                    always available in your personal cabinet and is updated in
+                    real-time.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="right-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title10">
+                  <span></span>What is the payout frequency?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text10">
+                    By default, each partner has a NET30 payment period (payment
+                    on the first Monday of each calendar month). Please contact
+                    your manager if you want to change the payout period to a
+                    different one.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title11">
+                  <span></span>How can I create referral link?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text11">
+                    Creating a referral link is just 4 clicks in your personal
+                    cabinet in the "Offers" section. It is only necessary to
+                    click on the button "get link", select the traffic source,
+                    select the final URL, and click "copy URL".
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title12">
+                  <span></span>Which GEOs are allowed/prohibited?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text12">
+                    After approving the account, it would be best to ask a
+                    personal manager for the up-to-date list of the most
+                    converted and restricted GEOs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-tabs-block">
+          <div class="title" data-translate="faq_main_title3">
+            About the conditions
+          </div>
+          <div class="faq-tabs">
+            <div class="left-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title13">
+                  <span></span>What parameters are available for player
+                  analytics?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text13">
+                    You can set up analytical reports in the personal cabinet
+                    based on more than 50 metrics.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title14">
+                  <span></span>Can I get advice about my traffic?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text14">
+                    Yes, with enough players referred by you, our team can
+                    analyze your player base and advise helpful information that
+                    will help improve performance.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title15">
+                  <span></span>What if I cannot or do not want to verify the
+                  sources of my traffic?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text15">
+                    In this case, we reserve the right not to accept your
+                    traffic.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="right-faq-tabs">
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title16">
+                  <span></span>I want to send branded traffic, what are the
+                  conditions?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text16">
+                    A Revenue Share of 20% is the standard rule applied to
+                    branded traffic.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title17">
+                  <span></span>How is the revenue share formula calculated?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text17">
+                    [(Bets – Wins) – Payment System Commissions — Royalty of
+                    Game Providers] * % RevShare = NGR * % RevShare, where: Bets
+                    - Wins - Gross Gaming Revenue; Payment System Commissions -
+                    payment system fees; Royalty of Game Providers - game
+                    provider fees; NGR - net gaming revenue; % RevShare - your
+                    commission percentage.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-tab">
+                <button class="accordion" data-translate="faq_title18">
+                  <span></span>I didn't find the answer to my question about how
+                  to obtain all the partnership details?
+                </button>
+                <div class="panel">
+                  <p data-translate="faq_text18">
+                    Please contact us for more details by emailing or writing to
+                    your manager.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <img src="{% static 'images/coins3.webp' %}" alt="" class="coins3" />
+          </div>
+        </div>
+      </main>
+      <div class="faq-footer">
+        <img src="{% static 'images/faq-footer-bg.webp' %}" alt="" />
+      </div>
+      <footer class="footer no-margin-footer">
+        <div class="inner-footer">
+          <div class="footer-item-wrapper">
+            <a href="./privacy-policy" class="privacy" data-translate="privacy"
+              >privacy policy</a
+            >
+          </div>
+          <div class="footer-item-wrapper">
+            <a href="/" class="footer-logo"
+              ><img src="{% static 'images/logowhite.webp' %}" alt=""
+            /></a>
+          </div>
+          <div class="footer-item-wrapper">
+            <a href="{% url 'terms' %}" class="terms" data-translate="terms"
+              >terms and conditions</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      var acc = document.querySelectorAll(".accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+
+    <div id="veepn-breach-alert"></div>
+    <style>
+      @font-face {
+        font-family: FigtreeVF;
+        src: url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2)
+            format("woff2 supports variations"),
+          url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2)
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-display: swap;
+      }
+    </style>
+  </body>
+</html>

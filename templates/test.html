@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header input[type="text"] {
+            width: 200px;
+            padding: 5px;
+        }
+
+        .header select {
+            padding: 5px;
+        }
+
+        .header button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .table th {
+            background-color: #f0f0f0;
+        }
+
+        .table .action-button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pagination button.active {
+            background-color: #ccc;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .table th, .table td {
+                display: block;
+                width: 100%;
+            }
+
+            .table th {
+                text-align: left;
+            }
+
+            .table td {
+                padding: 5px 10px;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" placeholder="Enter website's URL">
+            <select>
+                <option value="sports">Sports predictions</option>
+            </select>
+            <select>
+                <option value="english">English</option>
+            </select>
+            <button>ADD SITE</button>
+        </div>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Website</th>
+                        <th>Show/Hide</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3559807</td>
+                        <td>http://www.ansiya.com</td>
+                        <td><button class="action-button">HIDE</button></td>
+                    </tr>
+                    <tr>
+                        <td>3563316</td>
+                        <td>http://paripulsepartners.com</td>
+                        <td><button class="action-button">HIDE</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button>&lt;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>10</button>
+            <button>&gt;</button>
+        </div>
+    </div>
+</body>
+</html>

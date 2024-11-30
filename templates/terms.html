@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Medium.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Bold.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="{% static 'fonts/FuturaPT-Light.woff' %}"
+      type="font/woff"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
+    <script type="module" src="{% static 'js/translates.js' %}"></script>
+    <script type="module" src="{% static 'js/translations_en.js' %}"></script>
+    <script type="module" src="{% static 'js/translations_ru.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link
+      type="image/x-icon"
+      rel="shortcut icon"
+      href="{% static 'images/32x32.ico' %}"
+    />
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="{% static 'images/16x16.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="{% static 'images/32x32.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+      href="{% static 'images/96x96.png' %}"
+    />
+    <link
+      type="image/png"
+      sizes="120x120"
+      rel="icon"
+      href="{% static 'images/120x120.png' %}"
+    />
+
+    <title>20Bet PARTNERS | TERMS AND CONDITIONS</title>
+  </head>
+
+  <body>
+    <div class="wrapper conditions-wrapper">
+      <div class="go-to-top-button"></div>
+      <header class="header conditions-header">
+        <div class="header-nav">
+          <a href="/" class="header-logo"
+            ><img src="{% static 'images/logowhite.webp' %}" alt=""
+          /></a>
+          <nav class="header-menu">
+            <a href="{% url 'index' %}" class="header-menu-item" data-translate="about_product"
+              >about us</a
+            >
+            <a
+              href="{% url 'index' %}"
+              class="header-menu-item"
+              data-translate="conditions"
+              >terms</a
+            >
+            <a href="/faq" class="header-menu-item" data-translate="faq">faq</a
+            ><a
+              href="{% url 'faq' %}"
+              class="header-menu-item"
+              data-translate="reviews"
+              >testimonials</a
+            >
+            <a
+              href="{% url 'index' %}"
+              class="header-menu-item"
+              data-translate="contacts"
+              >contacts</a
+            >
+          </nav>
+          <div class="header-buttons">
+            <a
+              href="{% url 'register1' %}"
+              target="_blank"
+              ><button
+                class="header-registration-button"
+                data-translate="registration"
+              >
+                registration
+              </button></a
+            >
+            <a href="{% url 'login1' %}" target="_blank"
+              ><button class="header-login-button" data-translate="log_in">
+                login
+              </button></a
+            >
+          </div>
+          <div class="header-langs languages-list">
+            <div class="current-language">
+              <img
+                src="{% static 'images/lang-arrow.svg' %}"
+                alt=""
+                class="lang-arrow"
+              />
+              <span class="cur-lang">EN</span>
+            </div>
+            <div class="sub-languages-list">
+              <a class="language" href="">EN</a>
+              <a class="language" href="">RU</a>
+            </div>
+          </div>
+          <div class="burger-menu">
+            <div class="menu-icon">
+              <span></span>
+            </div>
+            <nav class="menu-body">
+              <nav class="menu-list">
+                <ul>
+                  <li class="menu-item team-button">
+                    <a href="{% url 'index' %}" data-translate="about_product">about us</a>
+                  </li>
+                  <li class="menu-item vac-button">
+                    <a href="{% url 'index' %}" data-translate="conditions">terms</a>
+                  </li>
+                  <li class="menu-item benefits-button">
+                    <a href="{% url 'faq' %}" data-translate="faq">faq</a>
+                  </li>
+                  <li class="menu-item about-us-button">
+                    <a href="{% url 'faq' %}" data-translate="reviews">testimonials</a>
+                  </li>
+                  <li class="menu-item benefits-button">
+                    <a href="{% url 'index' %}" data-translate="contacts">contacts</a>
+                  </li>
+                  <li class="menu-item">
+                    <div
+                      class="header-langs languages-list header-langs-burger"
+                    >
+                      <div class="current-language">
+                        <span class="cur-lang cur-lang-burger">EN</span>
+                        <img
+                          src="{% static 'images/lang-arrow.svg' %}"
+                          alt=""
+                          class="lang-arrow lang-arrow-burger"
+                        />
+                      </div>
+                      <div class="sub-languages-list sub-languages-list-burger">
+                        <a class="language" href="">EN</a>
+                        <a class="language" href="">RU</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="main conditions-main">
+        <div class="title" data-translate="cond_main_title">
+          Terms of the affiliate program 20Bet Partners
+        </div>
+        <div class="conditions-content-blocks">
+          <div class="conditions-content-block">
+            <div class="conditions-title"></div>
+            <div class="conditions-text" data-translate="cond_main_text">
+              LAST UPDATED: 26.07.23<br /><br />
+              Sprut Group B.V., a company registered in Curacao, with
+              registration number149459 and registered office: Abraham Mendez
+              Chumaceiro Boulevard 03, Willemstad, Curacao, referred to in this
+              Agreement (“20Bet Partners”), (“Program”)<br /><br />
+              These terms and conditions ("Agreement") govern your participation
+              in the 20Bet Partners affiliate program ("Program") as an
+              affiliate ("Affiliate"). The Partner undertakes to comply with
+              this Agreement and the schedules and agrees with them and the
+              amendments made by the Program.<br /><br /><br />
+              Terms<br /><br />
+              For the purposes of this Agreement, the following terms are used
+              in the text:<br /><br />
+              Brand traffic: traffic generated by requests containing the names
+              of affiliate program projects in various ways, including those
+              with errors (typos);<br /><br />
+              Motivated traffic: these are users who have agreed to perform any
+              action that qualifies as a conversion in exchange for money or any
+              other type of promotion;<br /><br />
+              GGR: gross gaming income, calculated as the sum of all bets minus
+              the sum of all winnings;<br /><br />
+              Payment System Commissions: payment systems commission;<br /><br />
+              Royalty of Game Providers: commission of game providers;<br /><br />
+              NGR: net gaming income;<br /><br />
+              RevShare: Affiliate commission percentage;<br /><br />
+              CPA: payment for specific actions of the client on the Program
+              website;<br /><br />
+              Offer: a commercial offer posted on the Program website, available
+              to Partners under individual commercial and territorial conditions
+              for each offer.
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title1">
+              1. 20Bet Partners Terms and Conditions:
+            </div>
+            <div class="conditions-text" data-translate="cond_text1">
+              1.1 Principles of work, safety of data and account:<br />
+              <br />
+              (a) By registering in the Affiliate Program under the terms of
+              this Agreement, the Partner confirms his acceptance of the terms
+              of this Agreement.<br />
+              <br />
+              (b) By accepting the 20Bet Partners Terms and Conditions, the
+              Affiliate confirms that he/she is 18 years of age or older.<br />
+              <br />
+              1.2 The Program may, at its sole discretion, confirm or otherwise
+              verify the validity and accuracy of any information provided by
+              the Partner during the registration. If at any time the Program
+              determines, in its sole discretion, that the information provided
+              by the Partner during the registration is misleading, inaccurate,
+              or untrue, the Program may restrict, disable or terminate the
+              Partner's account, access, and use by the Partner of the Program
+              and/or any the benefits received from the Partner's participation
+              in the Program; The Program may also withhold the payment of any
+              commissions and/or other funds that may or may not be payable to
+              the Affiliate.<br />
+              <br />
+              1.3. Login and password are created to access the system of the
+              affiliate program 20Bet Partners.<br />
+              <br />
+              1.4. The responsibility for protecting this data from third
+              parties lies solely with the Partner. 20Bet Partners is not
+              responsible for the safety of this confidential data. The
+              Affiliate Program recommends using two-factor authentication to
+              secure your account.<br />
+              <br />
+              1.5. The 20Bet Partners program may refuse to cooperate with any
+              Partner without giving reasons.<br />
+              <br />
+              1.6. Selling or transferring accounts to third parties without
+              prior approval from the Affiliate Program is strictly
+              prohibited.<br />
+              <br />
+              1.7. 20Bet Partners Affiliate Program reserves the right to
+              revise and change the rules of the Affiliate Program without the
+              consent of the Partner and without prior notice.<br />
+              <br />
+              1.8. The rules published on the Program website are considered
+              valid. The chronology of changes in the rules of the Affiliate
+              Program is not maintained.<br />
+              <br />
+              1.9. The parties intend under this Agreement to establish a
+              relationship between the Program and the Partner. Still, neither
+              party intends to create a joint venture or make the Partner in any
+              sense an agent or employee of the Program. The parties expressly
+              agree that they are independent contractors and that this
+              Agreement does not in any way create a joint venture nor have the
+              parties granted each other any right or authority to incur or
+              create any obligation of liability, express or implied, on behalf
+              of each other, or bind the other party in any way.<br />
+              <br />
+              1.10. Affiliate shall not create or assume on behalf of the
+              Program or on its own behalf any obligations, express or implied,
+              or act or intend to act as its agent or representative for any
+              purpose, and Affiliate shall not have the right to position
+              himself as having such authority.<br />
+              <br />
+              1.11. The Partner is solely responsible for the development,
+              operation, and maintenance of the Partner's website, as well as
+              for all materials that appear on the Partner's website. Such
+              responsibilities include, but are not limited to, the technical
+              operation of the Partner's website and all related equipment;
+              creation and placement of reviews, descriptions, and links to
+              products on the Partner's website and linking these links to the
+              Program website; the accuracy and correctness of the materials
+              posted on the Partner's website; and ensuring that materials
+              posted on the Affiliate's website do not infringe or infringe on
+              the rights of any third party, or be defamatory or otherwise
+              violate any applicable law. The program declines any
+              responsibility for such cases. Except as provided in this Section,
+              the Affiliate may not sublease, rent, sell, resell, or outsource
+              any Proposal, and any attempt to do so will be invalid.<br />
+              <br />
+              1.12. The Partner may be granted a non-exclusive, non-transferable
+              license for the term of this Agreement to use the trade name of
+              the Program, trademarks, service marks, logos, and any other
+              designations (together - Intellectual Property) only with the
+              written consent of the Program Representative solely in connection
+              with the placement of advertising materials on Partner website.
+              This license may not be sublicensed, assigned, or otherwise
+              transferred by the Affiliate. Affiliate's right to use the
+              Intellectual Property is limited by this license and arises only
+              from this license. Affiliate shall not assert invalidity,
+              unenforceability or challenge the right to the Intellectual
+              Property in any action or proceeding of any kind or nature, and
+              shall not take any action that may infringe the Program's rights
+              to the Intellectual Property, create a similar, otherwise weaken
+              its validity or harm the reputation that accompanies it.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title2">
+              2. Traffic, sources, and restrictions:
+            </div>
+            <div class="conditions-text" data-translate="cond_text2">
+              2.1. The Affiliate Program reserves the right to request
+              information about the Partner's traffic sources at any time.<br />
+              <br />
+              2.2. If the Affiliate refuses to provide information about the
+              sources through which he/she advertises the casino, the Affiliate
+              Program reserves the right to suspend payments to the
+              Affiliate.<br />
+              <br />
+              2.3. For websites, you need to specify a URL (or an alternative
+              way to the domain), for media/arbitrage traffic - an example ad
+              and a screenshot of the advertising account, for email newsletters
+              - add an email address support@20Bet.partners to the mailing
+              list, as well as show the texts and templates of letters, for
+              public publications on social networks, streaming channels or
+              mobile applications - use the correct links.<br />
+              <br />
+              2.4. If the advertisement uses languages ​​not used in the
+              Affiliate Program, the Partner is obliged to translate it upon
+              request. The Affiliate Program uses the “Last cookie wins” rule.
+              This means that the player will be assigned to the Partner whose
+              advertisement led to the player's registration with 20Bet
+              Partners for the last time.<br />
+              <br />
+              2.5. The 20Bet Partners Affiliate Program allows Partners to
+              send emails to players using the Partner's own contact databases,
+              only if the source of this data is indicated. The text of the
+              e-mail must be approved in advance by the Affiliate Program.<br />
+              <br />
+              2.6. Engaging players using spam mailings is prohibited. Upon
+              detection of such mailing, the Affiliate Program may close the
+              Partner's personal account in the 20Bet Partners system without
+              paying out the funds earned and stored on the account.<br />
+              <br />
+              2.7. Branded traffic Affiliates are limited to the Affiliate
+              Program through standard commission programs.<br />
+              <br />
+              2.8. For the 20Better.com RevShare project, the commission for
+              Branded traffic is 20%.<br />
+              <br />
+              2.9. Also under the definition of branded traffic are sites with a
+              copied or similar design to the original. It is strictly forbidden
+              to use the names of the Affiliate Program projects or the names of
+              the Affiliate Projects with numbers that may look like a mirror of
+              the project for branded traffic, such as 20Better1, 20Better2,
+              20Better123, etc.<br />
+              <br />
+              2.10. If the Affiliate wants to use branded traffic, it is
+              necessary to contact the Affiliate Program and agree on the
+              conditions under which the Affiliate Program can accept this
+              traffic. In case of deliberate use of standard commissions for
+              branded traffic and concealment of this information, the Affiliate
+              Program reserves the right to suspend cooperation with the
+              Partner.<br />
+              <br />
+              2.11. Motivated traffic is prohibited by the Affiliate Program. If
+              such traffic is detected, the Affiliate Program reserves the right
+              to close the Affiliate's account without warning and payment of
+              any funds stored in the account.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title3">
+              3. Commissions, negative balance carryover, and sub-partnerships.
+            </div>
+            <div class="conditions-text" data-translate="cond_text3">
+              3.1 The standard commission program is dynamic RevShare from 20%
+              to 55%, which is calculated by the formula:<br />
+              <br />
+              [(Bets – Wins) – Payment System Commissions — Royalty of Game
+              Providers] * % RevShare = NGR * % RevShare.<br />
+              <br />
+              3.2. In the 20Bet Partners affiliate program, you can work on
+              CPA and Hybrid programs (CPA + RevShare). These programs are set
+              on an individual basis by agreement between the Affiliate Program
+              and the Affiliate and may be canceled at any time within 24 hours
+              after the Affiliate has been notified.<br />
+              <br />
+              3.3. If an Affiliate operates on the RevShare flat commission
+              model and fails to attract new players to affiliate program
+              projects for 1 month or more, his/her RevShare flat commission may
+              be changed to the RevShare minimum commission program of 20% or
+              one that matches his/her dynamic grid.<br />
+              <br />
+              3.4. At the beginning of cooperation, representatives of the
+              affiliate program can offer the partner a RevShare deal - 50% to
+              start working, within 1-2 months. At the end of the month, the
+              conditions can be revised up or down based on the volume of
+              traffic in accordance with the dynamic grid.<br />
+              <br />
+              Single dynamic RevShare grid for sports betting and casino:<br /><br />
+              <div
+                class="terms-grid"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-template-rows: repeat(7, 1fr);
+                  grid-column-gap: 0px;
+                  grid-row-gap: 0px;
+                  border: 1px solid #fff;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  0-9
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  20%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  10-24
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  25%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  25-35
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  30%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  35-44
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  35%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  45-54
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  40%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  55-99
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  45%
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  100+
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #fff;
+                  "
+                >
+                  50%
+                </div>
+              </div>
+              <br /><br />
+              3.5. If during the billing period, there were winnings of players
+              that exceeded their deposits, that is, if the players engaged by
+              the Partner caused losses to the Casino, the Partner's income for
+              this billing period will be equal to zero.<br />
+              <br />
+              3.6. If there is a negative balance on the Partner's account in
+              the current billing period, it can be rolled over to the next
+              billing period. In such cases, the next billing period starts with
+              a negative value.<br />
+              <br />
+              3.7. Negative balance transfer can be disabled if, during the 1st
+              month, the traffic and activity of the player meet these
+              conditions:<br />
+              <br />
+              Number of registrations — 1000+<br />
+              A number of players with first deposits (FTD) - 300+<br />
+              The total amount of deposits — $20,000<br />
+              Number of players with deposits - 500+<br />
+              <br />
+              If one of the indicators is less than these criteria, then the
+              transfer of the negative balance will be re-enabled for the
+              Partner.<br />
+              <br />
+              3.8. If an Affiliate has referred a person who wants to become a
+              new Affiliate (sub-affiliate) and cooperate with the 20Bet
+              Partners Affiliate Program, the Affiliate who has referred a new
+              Affiliate will receive referral bonuses.<br />
+              <br />
+              3.9. The amount of referral bonuses is 3-5% of the NGR earnings of
+              all previously listed sub-partners for the billing period.<br />
+              <br />
+              3.10. Any violation by the Sub-Partner of the provisions of this
+              Agreement will be considered a violation of this Agreement by the
+              Partner.<br />
+              <br />
+              Tax and Administrative Fees: Each Party shall be responsible for
+              bearing its own taxes and administrative fees applicable to their
+              respective operations. Neither Party shall be held liable for any
+              taxes and administrative fees that may arise during the
+              performance of this Agreement in any jurisdiction. Additionally,
+              neither the Affiliates nor the Partnership Program will impose any
+              taxes or administrative fees during the performance of this
+              Agreement.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title4">
+              4. Use of promotional materials
+            </div>
+            <div class="conditions-text" data-translate="cond_text4">
+              4.1. The use of advertising materials (graphics, videos, logos,
+              layout elements, texts) of the Projects of the Affiliate Program
+              in order to promote the Affiliate's own projects is prohibited.<br />
+              <br />
+              4.2. In case of violation of this rule, the Affiliate's account
+              may be blocked without any notice.<br />
+              <br />
+              4.3. It is forbidden to change the logos of the Affiliate Program
+              Projects in any way, including changing fonts, colors, or any
+              other changes that contradict the Brand Book. If necessary, the
+              Partner can request the Brand Book from his personal Manager.<br />
+              <br />
+              4.4. The Affiliate Program provides its Partners with various text
+              and graphic materials (by prior agreement). Partners have the
+              right to use any information from the casino website and from the
+              casino's personal account, provided that it is paraphrased. If the
+              text is copied from the casino website "as is", the Affiliate
+              Program may terminate the partnership with the Affiliate or treat
+              his/her traffic as branded.<br />
+              <br />
+              4.5. Affiliates are prohibited from promoting the Projects of the
+              Affiliate Program by sending spam by e-mail, contextual
+              advertising mentioning the brands of the Projects of the Affiliate
+              Program, and advertising such as ClickUnder / PopUnder. If such
+              activity is detected, the Affiliate's personal account will be
+              restricted, any accumulated funds and commissions will be
+              withheld. It is also forbidden to use false information about the
+              casino and bonuses.<br />
+              <br />
+              4.6. The affiliate program may require the replacement of outdated
+              links, screenshots, logos, and other promotional materials; in the
+              event that the Affiliate refuses to replace them, the Affiliate
+              Program may defer payment for an indefinite period of time until
+              the required changes are made.<br />
+              <br />
+              4.7. Information about 20Bet.com and any other projects of
+              the Affiliate Program in the Affiliate's reviews must be true. In
+              case of an indication of false information, different from the
+              information on the project websites, the Affiliate Program may
+              suspend cooperation with the Partner<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title5">
+              5. Fraud and violation of the rules of cooperation
+            </div>
+            <div class="conditions-text" data-translate="cond_text5">
+              5.1. Affiliates are prohibited from owning and using their
+              personal accounts in any Projects that belong to the 20Bet
+              Partners Affiliate Program through their own referral link. In
+              case of violation of this rule, both accounts of the Partner will
+              be blocked, and funds from both accounts will be debited.<br />
+              <br />
+              5.2. Such decisions are not subject to challenge. This rule also
+              applies to members of the Partner's family and his friends,
+              relatives, employees, contractors, and other persons with whom the
+              Partner has a close relationship.<br />
+              <br />
+              5.3. The Affiliate Program reserves the right to change the
+              Partner's balance by the amount that was lost by the casino as a
+              result of the fraudulent actions of players attracted by the
+              Partner. The partner's balance can be changed for this reason
+              within an unlimited period of time after the detection of
+              fraud.<br />
+              <br />
+              5.4. The Affiliate Program has the right not to pay the Affiliate
+              the profit received under the CPA model in cases where the
+              Affiliate attracts fake clients (players with multiple accounts,
+              motivated or fraudulent traffic, etc.). If the administration of
+              the Affiliate Program notices any untypical behavior of players
+              (for example, an atypically high percentage of players who do not
+              return to the project after CPA qualification), the partner's
+              income will be recalculated in accordance with the standard
+              RevShare commission.<br />
+              <br />
+              5.5. Deliberately providing the Affiliate Program with false
+              information about traffic sources may lead to termination of
+              cooperation.<br />
+              <br />
+              5.6. The Affiliate Program has the right to terminate the
+              Agreement and immediately block the Affiliate's account by sending
+              a written notice of termination of cooperation to the Affiliate in
+              the event of insults against the Affiliate managers, support and
+              administration of the Affiliate Program and/or its projects;
+              misleading and/or false public statements about the Affiliate
+              Program and/or its projects. Misrepresentation and/or false public
+              statements may mean text, action, or other manipulation of
+              information by the Partner, not supported by any evidence
+              (screenshots, links, etc.). Texts, images, or data in any other
+              digital form containing offensive language or any other
+              direct/indirect insults may be considered as an insult in relation
+              to the support and administration of the Affiliate Program and/or
+              its projects.<br />
+              <br />
+              5.7. If the administration of the Projects of the Affiliate
+              Program or the administration of the Affiliate Program has reason
+              to suspect the Partner of violating the rules of the Affiliate
+              Program during cooperation, his account may be blocked, and
+              payments may be postponed for an indefinite period until the
+              circumstances are clarified. If the check concludes that the fact
+              of violation of the rules is confirmed, the Affiliate program has
+              the right not to make payments to the Partner.<br />
+              <br />
+              5.8. In case of disagreement, the Partner must provide the
+              Affiliate Program with arguments in favor of his point of view and
+              his vision of solving the existing situation. The 20Bet Partners
+              affiliate program is ready to consider all the arguments presented
+              by the Partner and find a solution that is as honest as possible
+              from the point of view of both parties. The decision of the
+              Affiliate Program cannot be challenged.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title6">
+              6. Procedure and terms of payment
+            </div>
+            <div class="conditions-text" data-translate="cond_text6">
+              6.1. The Program will pay the Partner a commission calculated in
+              accordance with the payment terms specified in each Offer posted
+              by the Program on the Program Website. The Program applies NET 60,
+              NET 30, NET 15, or NET 7 payment plans at its sole discretion,
+              depending on the volume and quality of traffic sent by the
+              Partner, unless otherwise agreed by both parties.<br />
+              <br />
+              6.2. Regardless of the chosen payment method (for example,
+              Neteller, Skrill, etc.). The Partner must provide the Program with
+              their actual bank details.<br />
+              <br />
+              6.3. The Affiliate Program makes payments only to the details that
+              are specified in the Partner's personal account. The details can
+              be changed in the partner's personal account independently. The
+              Affiliate Program is not responsible if the payment was made using
+              the details from the Partner's personal account, but turned out to
+              be invalid or incorrect. The Partner bears full, sole, and
+              independent responsibility for the relevance of the data entered
+              by him. If the Affiliate wants to change the payment details, he
+              must report this without fail to mail support@20Bet.partners
+              from the mail under which he registered on the Affiliate Program
+              website. If a message about this was not received by mail or the
+              message was received from another mail that does not belong to the
+              registered account, then the request will not be taken into
+              account and will be canceled.<br />
+              <br />
+              6.4 The Program may, in its sole discretion and from time to time,
+              decide to transfer some or all of the Commission to the Affiliate
+              before receiving payment from the Client, but in no case is
+              obliged to do so.<br />
+              <br />
+              6.5. Commissions will only be paid to the Affiliate upon receipt
+              by the Program of payment from the Client in respect of such Offer
+              published in the Program's online reporting system.<br />
+              <br />
+              6.6 The Affiliate receives a commission in the Affiliate Program,
+              which is calculated as a percentage of the casino's net income
+              from players referred by the Affiliate. The partner can choose the
+              most profitable commission model for him.<br />
+              <br />
+              6.7. The minimum withdrawal amount from the Partner's account is
+              50 EUR for payment systems and 500 EUR for a bank transfer.<br />
+              <br />
+              6.8. Payment details can be changed no later than 5 working days
+              before the end of the billing period and before the end of
+              payments. The administration may delay payments to partners whose
+              players show suspicious activity, or to new partners for a period
+              of time that the Affiliate Program deems appropriate for
+              verification.<br />
+              <br />
+              6.9. If the Partner refers less than 5 players before the first
+              withdrawal, additional verification of these players may be
+              carried out.<br />
+              <br />
+              6.10. The Affiliate Program pays lifetime commissions on all
+              commissions as long as the Affiliate fulfills all of its
+              obligations and does not cause any reputational or financial
+              damage to the Affiliate Program or its projects.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title7">
+              7. Non-competition
+            </div>
+            <div class="conditions-text" data-translate="cond_text7">
+              7.1 During the term of this Agreement and for a period of six (6)
+              months thereafter, Affiliate shall not attempt in any way to bring
+              the Program into disrepute, and in particular, Affiliate shall
+              not, directly or indirectly: 1) solicit, or attempt to solicit or
+              solicit, work other than the Program; (2) induce or attempt to
+              induce any of the Program's employees to change jobs for
+              employment with a Program Partner or competitor; or (3) directly
+              or indirectly enter into any agreement or contract, whether in
+              writing or otherwise, with any Client or otherwise provide
+              services to any third party for the ultimate benefit of a Client
+              who, in the opinion of the Program, may compete with any services
+              provided by the Program to that Client.
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title8">
+              8. The right to enforce the contract
+            </div>
+            <div class="conditions-text" data-translate="cond_text8">
+              8.1. The Program's failure to enforce the Affiliate's strict
+              compliance with any provision of this Agreement will not
+              constitute a waiver of the Program's right to subsequently enforce
+              such provision or any other provision of this Agreement. No
+              changes by employees or Partners, as well as additions, deletions,
+              or additions to this Agreement, will be recognized by the Program
+              until the moment of publication on the site. None of our employees
+              or agents has the authority to make or agree to any change or
+              modification to this Agreement or its terms.
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title9">
+              9. Disclaimer
+            </div>
+            <div class="conditions-text" data-translate="cond_text9">
+              9.1. The Program disclaims all warranties, conditions,
+              representations, and indemnifications with respect to any
+              liability, express or implied (including, without limitation, any
+              warranties of profitability, satisfactory quality,
+              merchantability, fitness for a particular purpose, title, and
+              non-infringement).<br />
+              <br />
+              9.2. Notwithstanding any other provision of this Agreement, the
+              Program further disclaims all obligations and liability on the
+              part of the Program and those to whom it is legally liable for any
+              damages, including, but not limited to indirect and special
+              damages, attorneys' and experts' fees, and legal costs (even if
+              the Program has been advised of the possibility of such damages,
+              fees or costs) arising out of or in connection with this
+              Agreement. Under no circumstances will the Program be liable to
+              the Partner for any indirect, indirect, special, punitive or
+              incidental damages or loss of profits of the Partner or its
+              successors in title (including, without limitation, claims for
+              loss of reputation, use of or reliance on the services provided
+              under this Agreement, stop other work, or damage other assets)
+              arising from the breach or non-performance of express or implied
+              warranties, breach of agreement, misrepresentation, negligence,
+              liability for tort, or otherwise.<br />
+              <br />
+              9.3. Without limiting the foregoing, the Program shall not be
+              liable for any failure or delay resulting from any act of God,
+              fire, flood, war, riot, earthquake, power outage, riot, explosion,
+              embargo, strike, lawful or illegal action, labor shortage or
+              materials, interruption of transportation of any kind, slowdown,
+              action or inaction of the Partner or third parties, the equipment
+              or software of the Partner and/or any third party equipment, or
+              any other conditions affecting production or delivery in any way
+              beyond the control of the Program.<br />
+            </div>
+          </div>
+          <div class="conditions-content-block">
+            <div class="conditions-title" data-translate="cond_title10">
+              10. Final provisions
+            </div>
+            <div class="conditions-text" data-translate="cond_text10">
+              10.1. The Program may assign this Agreement without the prior
+              consent of the Partner. The Partner may not assign this Agreement
+              without the express written consent of the Program.<br />
+              <br />
+              10.2. The Program reserves the right to modify or supplement this
+              Agreement at any time, for any reason or no reason at all, at its
+              sole discretion. The most recent version of this Agreement will be
+              posted here. Although the Program may notify the Affiliate of
+              material changes to this Agreement, the Affiliate shall be solely
+              responsible for keeping abreast of any such changes or additions.
+              Any notice or other communication permitted or required by this
+              Agreement must be in writing and delivered personally or by fax or
+              email to the receiving party at the address provided to the
+              Program by the Partner in his account. Any such notice will be
+              deemed received on the date it is faxed, emailed, or delivered in
+              person. No term or condition of this Agreement shall be deemed
+              waived or a breach warranted unless such waiver or consent
+              justifying the breach is in writing and signed by both parties.<br />
+              <br />
+              10.3. In the event that any term or obligation of this Agreement
+              is declared by a court of competent jurisdiction to be perpetual,
+              invalid, illegal, or unenforceable, this Agreement with respect to
+              the remaining provisions will remain in effect.<br />
+              <br />
+              10.4. This Agreement will govern and be binding on the respective
+              successors and successors of both the Program and the Partner.
+              This Agreement constitutes the entire agreement between the
+              parties with respect to the subject matter of this agreement and
+              supersedes any prior or contemporaneous representations,
+              negotiations, understandings, and agreements, whether oral or
+              written.<br />
+              <br />
+              10.5. This Agreement is written and available in English and
+              Russian. In the event of any inconsistency between the meanings of
+              any translated versions of this agreement, the meaning of that
+              English version shall prevail.<br />
+              <br />
+              10.6. The validity, interpretation, and performance of this
+              Agreement shall be governed by the laws of Curacao.<br />
+              <br />
+              10.7. Any disputes arising between the Parties from this Agreement
+              or in connection with it shall be resolved in the appropriate
+              court of Curacao in accordance with the laws of Curacao.<br />
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="conditions-footer">
+        <img src="{% static 'images/faq-footer-bg.webp' %}" alt="" />
+      </div>
+      <footer class="footer no-margin-footer">
+        <div class="inner-footer">
+          <div class="footer-item-wrapper">
+            <a href="./privacy-policy" class="privacy" data-translate="privacy"
+              >privacy policy</a
+            >
+          </div>
+          <div class="footer-item-wrapper">
+            <a href="/" class="footer-logo"
+              ><img src="{% static 'images/logowhite.webp' %}" alt=""
+            /></a>
+          </div>
+          <div class="footer-item-wrapper">
+            <a href="{% url 'terms' %}" class="terms" data-translate="terms"
+              >terms and conditions</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+    <script>
+      var acc = document.querySelectorAll(".accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+
+    <div id="veepn-breach-alert"></div>
+    <style>
+      @font-face {
+        font-family: FigtreeVF;
+        src: url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2)
+            format("woff2 supports variations"),
+          url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2)
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-display: swap;
+      }
+    </style>
+  </body>
+</html>

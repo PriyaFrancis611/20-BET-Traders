@@ -1,0 +1,142 @@
+/*
+* Prefixed by:
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+.conditions-footer {
+    margin: 0;
+    background: initial;
+    height: initial;
+}
+
+.conditions-header::after,
+.conditions-header::before {
+    display: none;
+}
+
+.conditions-wrapper::before {
+    content: initial !important;
+    position: initial !important;
+    top: initial !important;
+    left: initial !important;
+    right: initial !important;
+    bottom: initial !important;
+    background-image: initial !important;
+    background-size: initial !important;
+    background-position: initial !important;
+    background-repeat: initial !important;
+    z-index: initial !important;
+}
+
+.conditions-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+.conditions-footer img {
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.conditions-main {
+    width: 90%;
+}
+
+.conditions-main .title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 103px;
+    text-transform: uppercase;
+    margin: 0 0 100px 0;
+    width: 100%;
+    text-align: left;
+}
+
+.conditions-content-blocks {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.conditions-content-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 200px;
+    gap: 30px;
+}
+
+.conditions-content-block:first-child {
+    margin-bottom: 120px;
+}
+.conditions-content-block:last-child {
+    margin-bottom: 0;
+}
+
+.conditions-title {
+    width: 30%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-family: "Futura PT";
+    font-style: normal;
+    font-weight: 450;
+    font-size: 30px;
+    line-height: 38px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.conditions-title::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 120px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: -o-radial-gradient(
+        7.7% 50.41%,
+        139.97% 570.7%,
+        rgba(0, 102, 255, 0.51) 0%,
+        rgba(38, 133, 255, 0.63) 48.75%,
+        rgba(94, 177, 255, 0.1) 100%
+    );
+    background: radial-gradient(
+        139.97% 570.7% at 7.7% 50.41%,
+        rgba(0, 102, 255, 0.51) 0%,
+        rgba(38, 133, 255, 0.63) 48.75%,
+        rgba(94, 177, 255, 0.1) 100%
+    );
+    mix-blend-mode: color-dodge;
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+}
+
+.conditions-text {
+    width: 70%;
+    font-family: "Futura PT";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.conditions-text ul {
+    list-style-type: decimal;
+    margin-left: 20px;
+}

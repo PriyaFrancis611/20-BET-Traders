@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- templates/admin_approval_email.html -->
+
+<p>New User Registration Request</p>
+<p><strong>Username:</strong> {{ username }}</p>
+<p><strong>First Name:</strong> {{ first_name }}</p>
+<p><strong>Last Name:</strong> {{ last_name }}</p>
+<p><strong>Email:</strong> {{ email }}</p>
+<p><strong>Phone:</strong> {{ phone }}</p>
+<p><strong>Telegram:</strong> {{ telegram }}</p>
+<p><strong>Country:</strong> {{ country }}</p>
+<p><strong>Preferred Payment Method:</strong> {{ preferred_payment_method }}</p>
+<p><strong>User Account:</strong> {{ user_account }}</p>
+<p><strong>Website:</strong> {{ website }}</p>
+<p><strong>Additional Info:</strong> {{ additional_info }}</p>
+<p>Please click the link below to approve this user:</p>
+<p><a href="{{ approval_link }}">Approve User</a></p>
+
+</body>
+</html>
