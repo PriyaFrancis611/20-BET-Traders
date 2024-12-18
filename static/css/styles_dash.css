@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px 0 30px;
+  padding: 0 10px 0 30px;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
 }
 
@@ -42,7 +42,7 @@ body {
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #ebebeb;
+  background-color: rgb(63, 69, 73);
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -52,8 +52,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 30px 30px 30px;
-  margin-bottom: 30px;
+  padding: 0px 0px 0px 0px;
+  /* margin-bottom: 30px; */
 }
 
 .sidebar-title > span {
@@ -61,7 +61,7 @@ body {
 }
 
 .sidebar-brand {
-  margin-top: 15px;
+
   font-size: 20px;
   font-weight: 700;
 }
@@ -93,7 +93,7 @@ body {
   /*
     the z-index of the ApexCharts is 11
     we want the z-index of the sidebar higher so that
-    the charts are not showing over the sidebar 
+    the charts are not showing over the sidebar
     on small screens
   */
   z-index: 12 !important;
@@ -172,7 +172,8 @@ body {
 }
 
 .charts-card {
-  background-color: #000000;
+  background-color: rgb(253, 253, 253);
+  border: 1px solid rgb(178, 178, 178)
   margin-bottom: 20px;
   padding: 25px;
   box-sizing: border-box;
@@ -185,6 +186,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+
+
+.sidebar-list-item a {
+  color: rgb(213, 213, 213) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 /* ---------- MEDIA QUERIES ---------- */
@@ -235,3 +247,120 @@ body {
     display: none;
   }
 }
+
+
+
+
+<style>
+  #sidebar {
+  width: 250px;
+  /* Other styles for sidebar */
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 15px; */
+  background-color: rgb(63, 69, 73) !important;
+  color: white !important;
+
+}
+
+.sidebar-heading {
+  background-color: rgb(41, 41, 41) !important;
+  color: white !important;
+  padding: 10px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list-item {
+  padding: 10px 15px;
+}
+
+
+.sidebar-list-item a:hover {
+  color: #007bff;
+}
+
+.material-icons-outlined {
+  margin-right: 8px;
+}
+
+body > div > header > div.header-right{
+  font-size: 15px;
+}
+
+
+.apexcharts-legend-text{
+  color: rgb(100,100,100) !important;
+}
+
+@media (max-width: 480px) {
+  .main-cards {
+    grid-template-columns: 1fr; /* Stack the cards vertically on small screens */
+    gap: 8px;
+    padding: 5px;
+  }
+
+  .card {
+    padding: 8px;
+  }
+
+  .card h3 {
+    font-size: 12px;
+  }
+
+  .card h1 {
+    font-size: 18px;
+  }
+
+  .material-icons-outlined {
+    font-size: 39px !important;
+    font-weight: 400;
+    margin-left: 10px;
+    color: rgb(2, 178, 130);
+
+  }
+}
+
+
+/* .overlayy {
+  background: rgba(16, 16, 16, 0.768) !important;
+
+} */
+
+
+body{
+  font-family: 'Futura Cyrillic Book' ,Arial, Helvetica, sans-serif;
+}
+
+    .overlayyy {
+position: fixed;   /* Fixes the overlay in place */
+top: 0;
+left: 0;
+width: 170px;      /* Full viewport width */
+height: 100vh;     /* Full viewport height */
+background: rgb(0 0 0 / 80%) !important; /* Semi-transparent background */
+display: none;
+z-index: 1;     /* Ensure it stays on top of other elements */
+}
+
+#mobileee {
+  display: block;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  #mobileee {
+    display: none !important;
+  }
+}
+

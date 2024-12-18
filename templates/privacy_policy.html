@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">    <title>20Bets Partners</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles_dash.css' %}">
+  </head>
+  <body>
+    <style>
+      body{
+        font-family: 'Futura Cyrillic Book' ,Arial, Helvetica, sans-serif;
+      }
+    </style>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header" style="background-color: rgb(28, 27, 27);">
+        <img src="{% static 'images/1733058129438 (1).png' %}" alt="" srcset="" style="width: 85px; margin-left: -10px;">
+
+
+
+
+
+        <style>
+          #mobileee {
+          display: block;
+        }
+
+        /* Media query for mobile view */
+        @media (max-width: 768px) {
+          #mobileee {
+            display: none !important;
+          }
+        }
+        </style>
+        <div class="header-left" id="mobileee">
+
+          <button style="
+          text-align: center;
+          padding: 0.5em 1em;
+          border-width: 1px;
+          border-style: solid;
+          text-transform: uppercase;
+          border-radius: 5px;
+          border-color: rgb(46, 46, 46);
+          background-color: rgb(2, 178, 130);
+          transition: 0.3s;
+          font-size: 0.875em;
+          line-height: 16.1px;
+          color: rgb(30, 30, 30); /* Black text color */
+          font-family: Arial, sans-serif;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+          white-space: nowrap; /* Ensures text stays on one line */
+        "
+        aria-hidden="true" focusable="false">
+          <svg viewBox="0 0 512 512" height="14" width="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 5px;">
+            <path fill="currentColor" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path>
+          </svg>
+          Refresh Statistics
+        </button>
+
+        <style>
+          /* Responsive styling for mobile devices */
+          @media (max-width: 600px) {
+            button {
+              padding: 0.4em 0.6em;
+              font-size: 0.5em !important; /* Smaller font size */
+              line-height: 1.2; /* Adjusted line height */
+              white-space: nowrap; /* Ensure text fits in one line */
+            }
+            button svg {
+              height: 10px; /* Smaller icon size */
+              width: 10px;
+              margin-right: 3px;
+            }
+          }
+        </style>
+
+        </div>
+
+        <div class="header-right" style="position: relative;">
+          <span onclick="toggleDropdown()" style="cursor: pointer;">
+            <!-- SVG icon instead of account_circle -->
+            <svg viewBox="0 0 496 512" height="26" width="26" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT">
+              <path fill="#ffffff" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path>
+            </svg>
+
+          </span>
+
+          <div class="menu-icon" onclick="openSidebar()" >
+            <span class="material-icons-outlined" style="margin-top: -15px !important;">menu</span>
+          </div>
+          <span onclick="toggleDropdown()" style="cursor: pointer; color: white;">
+            <!-- <svg viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M432 320h-32a16 16 0 0 0-16 16v112H64V128h144a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V336a16 16 0 0 0-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 0 0 0 34L157.67 377a24 24 0 0 0 34 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 0 0-24-24z"></path></svg> -->
+          </span>
+
+
+          <!-- Dropdown menu -->
+          <div id="dropdownMenu" style="
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            width: 180px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+            opacity: 0;">
+
+            {% for i in y %}
+            <div style="padding: 10px; font-size: 0.875em; color: #bbb;"><svg viewBox="0 0 496 512" height="26" width="26" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT">
+              <path fill="#ffffff" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path>
+            </svg> &nbsp; &nbsp;&nbsp; Aff. ID: {{i.userid}}</div>
+            {% endfor %}
+            <hr style="border: 0.5px solid #444;">
+            <a href="#" style="
+              display: block;
+              padding: 10px;
+              color: rgb(230, 229, 229);
+              text-decoration: none;
+              font-weight: 500;
+              text-align: left;
+              transition: background 0.3s;
+              border-radius: 4px;">
+             <span class="material-icons-outlined">logout</span> Logout
+            </a>
+          </div>
+        </div>
+
+        <script>
+          function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "none" || dropdown.style.opacity === "0") {
+              dropdown.style.display = "block";
+              setTimeout(() => { dropdown.style.opacity = "1"; }, 10); // Smooth transition
+            } else {
+              dropdown.style.opacity = "0";
+              setTimeout(() => { dropdown.style.display = "none"; }, 300);
+            }
+          }
+
+          // Close dropdown if clicked outside
+          window.addEventListener("click", function(event) {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (!event.target.closest(".header-right")) {
+              dropdown.style.opacity = "0";
+              setTimeout(() => { dropdown.style.display = "none"; }, 300);
+            }
+          });
+        </script>
+
+
+
+
+
+
+      </header>
+      <!-- End Header -->
+<style>
+  #sidebar {
+  width: 250px;
+  /* Other styles for sidebar */
+}
+@media (max-width: 600px) {
+            #sidebar {
+    display: none;
+    grid-area: sidebar;
+    height: 100%;
+    width: 250px;
+    background-color: rgb(63, 69, 73);
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    position: fixed; /* Fixed position for the sidebar */
+    top: 0; /* Align to the top */
+    right: 0; /* Position it on the right side */
+    z-index: 12;
+}
+
+/* Updated sidebar-responsive class */
+.sidebar-responsive {
+    display: inline !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 12 !important;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(63, 69, 73);
+    transition: all 0.5s;
+}
+
+/* Add overlay background when sidebar is active */
+body.sidebar-active {
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Dark background */
+}
+
+
+          }
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  background-color: rgb(63, 69, 73)
+  color: white;
+
+}
+
+.sidebar-heading {
+  background-color: rgb(41, 41, 41);
+  color: white;
+  padding: 10px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list-item {
+  padding: 10px 15px;
+}
+
+
+.sidebar-list-item a:hover {
+  color: #007bff;
+}
+
+.material-icons-outlined {
+  margin-right: 8px;
+}
+
+</style>
+         <!-- Sidebar -->
+<aside id="sidebar">
+  <div class="sidebar-title" style="background-color: rgb(28, 27, 27) !important; border-left: 1px solid #333;">
+    <div class="sidebar-brand">
+      <!-- <span class="material-icons-outlined"></span>  -->
+
+      <style>
+        @media (max-width: 768px) {
+          #mobileeee {
+            display: block !important;
+          }
+        }
+      </style>
+      <!-- <img id="mobileeeee" src="./images/1733058129438 (1).png" alt="Logo" style="max-width: 100px; height: 70%; padding: 10px 0; display: block; margin: 0 auto; "> -->
+      <br>
+    </div>
+    <!-- <span class="material-icons-outlined" onclick="closeSidebar()">close</span> -->
+    <div onclick="closeSidebar()" style="position: absolute; top: 28px; right: 20px; cursor: pointer; z-index: 10; margin-left: 15px;">
+      <svg viewBox="0 0 352 512" height="30" width="30" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT">
+          <path fill="currentColor" d="m242.72 256 100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+      </svg>
+  </div>
+
+  </div>
+
+
+<style>
+  .sidebar-list-item{
+    border-top: 1px solid rgb(28, 27, 27);
+    padding: 15px;
+  }
+</style>
+    <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important; border-top:1px dotted rgb(28, 27, 27) !important; border-left: 1px solid #333;">MAIN MENU</h2>
+  <ul class="sidebar-list">
+    <li class="sidebar-list-item" >
+      <a href="{% url 'statistics' %}" target="_blank">
+        <!-- <span class="material-icons-outlined">house</span> -->
+        <svg style="width: 40px;" viewBox="0 0 576 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M280.37 148.26 96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47 488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
+        Main Page
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'webpages' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg>
+        Webpages
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'commission_structure' %}" target="_blank">
+        <svg style="width: 42px;" viewBox="0 0 288 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="m209.2 233.4-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"></path></svg>
+        Commission
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'payment_history' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 640 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M320 144c-53.02 0-96 50.14-96 112 0 61.85 42.98 112 96 112 53 0 96-50.13 96-112 0-61.86-42.98-112-96-112zm40 168c0 4.42-3.58 8-8 8h-64c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h16v-55.44l-.47.31a7.992 7.992 0 01-11.09-2.22l-8.88-13.31a7.992 7.992 0 012.22-11.09l15.33-10.22a23.99 23.99 0 0113.31-4.03H328c4.42 0 8 3.58 8 8v88h16c4.42 0 8 3.58 8 8v16zM608 64H32C14.33 64 0 78.33 0 96v320c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V96c0-17.67-14.33-32-32-32zm-16 272c-35.35 0-64 28.65-64 64H112c0-35.35-28.65-64-64-64V176c35.35 0 64-28.65 64-64h416c0 35.35 28.65 64 64 64v160z"></path></svg>
+        Payment History
+      </a>
+    </li>
+    <li class="sidebar-list-item" style="border-left: 5px solid rgb(2, 178, 130); background-color: rgb(28, 27, 27); border-top: 1px solid #333">
+      <a href="{% url 'account' %}" target="_blank" style="color: rgb(2, 178, 130) !important;">
+        <svg style="width: 42px;"  viewBox="0 0 448 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>
+         Account
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'contacts' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+         Contacts
+      </a>
+    </li>
+  </ul>
+
+  <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important">MARKETING</h2>
+  <ul class="sidebar-list">
+    <li class="sidebar-list-item">
+      <a href="{% url 'aff_links' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M432 320h-32a16 16 0 0 0-16 16v112H64V128h144a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V336a16 16 0 0 0-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 0 0 0 34L157.67 377a24 24 0 0 0 34 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 0 0-24-24z"></path></svg>
+         Affiliate Link
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'promocode' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 16 16" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path d="M0 2h2v10H0zm3 0h1v10H3zm2 0h1v10H5zm3 0h1v10H8zm4 0h1v10h-1zm3 0h1v10h-1zm-5 0h.5v10H10zM7 2h.5v10H7zm6.5 0h.5v10h-.5zM0 13h1v1H0zm3 0h1v1H3zm2 0h1v1H5zm5 0h1v1h-1zm5 0h1v1h-1zm-3 0h2v1h-2zm-5 0h2v1H7z"></path></svg>
+         PromoCode
+      </a>
+    </li>
+  </ul>
+
+  <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important;">REPORTS</h2>
+  <ul class="sidebar-list">
+    <li class="sidebar-list-item">
+      <a href="{% url 'summary' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
+         Summary
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{% url 'full_report' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 512 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zM372.7 159.5 288 216l-85.3-113.7c-5.1-6.8-15.5-6.3-19.9 1L96 248v104h384l-89.9-187.8c-3.2-6.5-11.4-8.7-17.4-4.7z"></path></svg>
+
+        Full Report
+      </a>
+    </li>
+
+    <li class="sidebar-list-item">
+      <a href="{% url 'playerreport' %}" target="_blank">
+        <svg style="width: 42px;"  viewBox="0 0 576 512" height="15" width="15" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"></path></svg>
+         Player Report
+      </a>
+    </li>
+
+  </ul>
+  <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important; ">&nbsp;</h2>
+  <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important; ">&nbsp;</h2>
+  <h2 class="sidebar-heading" style="background-color: rgb(28, 27, 27) !important; ">&nbsp;</h2>
+</aside>
+
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <br>
+          <!-- <h2>Main Page</h2> -->
+        </div>
+
+
+
+
+
+
+
+<style>
+    .jdoPTm {
+    padding: 20px 10px;
+    margin-bottom: 40px;
+    color: rgb(39, 58, 76);
+    font-size: small;
+}
+a{
+    color:rgb(2, 178, 130)
+}
+</style>
+
+<div class="InfoPageWrapper-sc-1mpvhq9-11 jdoPTm"><div><p><b>PRIVACY POLICY</b></p><p><span style="font-weight: 400;">Last updated September 11, 2024</span></p><p><span style="font-weight: 400;">In this Privacy Policy we explain how we process personal data when we provide our services and when you navigate through our website, as well as when you communicate with us by phone, e-mail, social media and otherwise.</span></p><p><span style="font-weight: 400;">This Privacy Policy describes policies and practices regarding our collection and use of Your personal data, as well as sets forth Your privacy rights. We recognise that personal data protection is an ongoing responsibility, and we may from time to time update this Privacy Policy, as we undertake new personal data processing practices.</span></p><p><span style="font-weight: 400;">Please take your time to carefully read this Privacy Policy and, if you have any requests, questions, or suggestions regarding your personal data or any general questions regarding methods of processing and using the services that are provided to you, please contact us at support-en@20bets.com.</span></p><ol><li><b> DEFINITIONS</b></li></ol><p><span style="font-weight: 400;">The following terms are defined as follows in this Privacy Policy:</span></p><ul><li style="font-weight: 400;" aria-level="1"><b>We</b><span style="font-weight: 400;">/ </span><b>Controller </b><span style="font-weight: 400;">- Edjowa -Gaming N.V., registration number: 148723, legal address: Abraham de Veerstraat 1, Curacao, e-mail support-en@20bets.com.</span></li><li style="font-weight: 400;" aria-level="1"><b>You</b><span style="font-weight: 400;"> –visitors of our Website and the employees, contact persons, board members or authorized persons of our Partners.</span></li><li style="font-weight: 400;" aria-level="1"><b>Partner</b><span style="font-weight: 400;"> – our Partners, contractors and affiliated parties that provides the Website and platform management services.</span></li><li style="font-weight: 400;" aria-level="1"><b>Services</b><span style="font-weight: 400;">- services you offer and provide to Us, in accordance with Terms and Conditions placed on this Website.</span></li><li style="font-weight: 400;" aria-level="1"><b>Website </b><span style="font-weight: 400;">– means </span><a href="https://20bets.partners"><span style="font-weight: 400;">https://20bets.partners</span></a><span style="font-weight: 400;"></span></li></ul><p><span style="font-weight: 400;">We may periodically make changes to this Privacy Policy and notify you of these changes by publishing the modified terms on our Website.</span></p><p><span style="font-weight: 400;">We recommend that you review this Privacy Policy regularly.</span></p><p><br><b></b></p><ul><li aria-level="1"><b><b>ON WHAT LEGAL GROUNDS DO WE PROCESS YOUR PERSONAL DATA?</b></b></li></ul><p><b><span style="font-weight: 400;">We process your data specified in this Privacy Policyon these legal grounds:</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">for fulfilment of legal obligations and requirements of legal acts applicable to us (Article 6(1)(c) of the GDPR);</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">for pursuing our legitimate interests and those of third parties (Article 6(1)(f) of the GDPR);</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">for acting in accordance with your consent (Article 6(1)(a) of the GDPR).</span></b></li></ul><p><b><span style="font-weight: 400;">In the scope and under the conditions set by applicable legislation, one or several of the abovementioned legal grounds may apply to processing of the same of your personal data.</span></b></p><p><b><b>Protection our property and legal interests</b></b></p><p><b><span style="font-weight: 400;">We process your personal data in order to protect our property and interests and those of our Partners and other persons, collect evidence of, as well as to administer, manage and recover damages inflicted on us and our property.</span></b></p><table><tbody><tr><td colspan="2"><p><b>Protection our property and legal interests</b></p></td></tr><tr><td><p><b>Data categories</b></p><p><span style="font-weight: 400;"></span></p></td><td><ul><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Information on the damages inflicted, including the debt amount, date, history, other related information;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">All other relevant personal data specified in this Privacy Policy.</span></li></ul></td></tr><tr><td><p><b>Legal grounds for data processing</b></p></td><td><p><span style="font-weight: 400;">Our legitimate interest (Article 6(1)(f) of the GDPR):</span></p><ul><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">to ensure protection of our property, property interests and those of our Partners, other persons;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">to administer, manage and recover any damages inflicted on us and our property;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">to ensure pursuance of our rights and legitimate interests.</span></li></ul></td></tr><tr><td><p><b>Duration of data processing</b></p></td><td><p><span style="font-weight: 400;">During the term of the validity of our Agreement with the relevant Partner and 5 (five) years after the termination of the Agreement.</span></p></td></tr></tbody></table><p><b><b>Website administration, support, improvement</b></b></p><p><b><span style="font-weight: 400;">When you visit and browse our Website, for the purpose of collecting statistical data and improving the quality of Services and visitor experience, we process the following data:</span></b></p><table><tbody><tr><td colspan="2"><p><b>Website administration, support, improvement</b></p></td></tr><tr><td><p><b>Data categories</b></p><p><span style="font-weight: 400;"></span></p></td><td><p><span style="font-weight: 400;">IP address, MAC address, date of visit, duration of visit, pages visited, devices and Applications used for web browsing, etc.</span></p><p><span style="font-weight: 400;"></span></p></td></tr><tr><td><p><b>Legal grounds for data processing</b></p></td><td><p><span style="font-weight: 400;">Your consent (Article 6(1)(a) of the GDPR).</span></p><br><p><span style="font-weight: 400;">Our legitimate interest to analyse data in order to administer, improve the Website operation, improve our activities and create value both for you as a customer and for our business (Article 6(1)(f) of the GDPR).</span></p><p><span style="font-weight: 400;"></span></p></td></tr><tr><td><p><b>Duration of data processing</b></p></td><td><p><span style="font-weight: 400;">See the Cookie Policy.</span></p></td></tr></tbody></table><p><b><span style="font-weight: 400;"></span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>Providing customer service – inquiries, requests, complaints</b></b></p><p><b><span style="font-weight: 400;">If you contact us in writing (by e-mail or otherwise), we will store the fact of you contacting us and the information provided, including personal data, so that we can properly examine your request and/or respond to your question, request or complaint.</span></b></p><p><b><span style="font-weight: 400;">If you contact our customer service centre by phone, we will write down the information you provide, including personal data, so that we can properly examine your request and/or respond to your inquiry.</span></b></p><table><tbody><tr><td colspan="2"><p><b>Customer service – inquiries, requests, complaints</b></p></td></tr><tr><td><p><b>Data categories</b></p><p><span style="font-weight: 400;"></span></p></td><td><p><span style="font-weight: 400;">The telephone number you are calling from or the e-mail address, other information pertaining to your inquiry, including, but not limited to, first name, surname, technical details of the call (date, duration, etc.); history of calls; complaint, request, inquiry text, description of the circumstances of the complaint or another inquiry, documents supporting the complaint, request, inquiry, other information provided to us.</span></p></td></tr><tr><td><p><b>Legal grounds for data processing</b></p></td><td><p><span style="font-weight: 400;">Our legitimate interest to provide customer service (Article 6(1)(f) of the GDPR).</span></p></td></tr><tr><td><p><b>Duration of data processing</b></p></td><td><p><span style="font-weight: 400;">Complaints, claims, written requests related to the performance our Services and/or which may be related to disputes, shall be stored throughout the entire effective term of the Agreement and no longer than for</span><b>5 years</b><span style="font-weight: 400;">after its expiry, unless longer periods specified below apply.</span></p></td></tr></tbody></table><p><b><b>Registration on the Website and provision of Services by You</b></b></p><p><b><span style="font-weight: 400;">You may be asked to provide Personal Data when using our Website, registering an account or providing Services to us, as more detailed described in this Privacy policy.</span></b></p><p><b><span style="font-weight: 400;">In order for us to conclude agreements with our Partners and to manage platform we process personal data of our Partners’ employees, contact persons, board members or authorized persons.</span></b></p><table><tbody><tr><td colspan="2"><p><b>Registration of the account and provision of Services to You</b></p></td></tr><tr><td><p><b>Data categories</b></p></td><td><p><span style="font-weight: 400;">During the process of registration of the account, as well during the process of providing Services, we collect the following data (required information may vary, depending on how you decide to sign the document):</span></p><br><ul><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">First name, surname;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Identity number;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Date of birth</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Contact information (telephone number, e-mail);</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Data related to communication with you;</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">bank account details</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">living address</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Other information necessary to identification and verification or to provide our services.</span></li></ul></td></tr><tr><td><p><b>Legal grounds for data processing</b></p></td><td><p><span style="font-weight: 400;">Legal obligations and requirements of legal acts (Article 6(1)(c) of the GDPR) in the following areas:</span></p><ul><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Anti-money laundering/combating the financing of terrorism</span></li><li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Contract law</span></li></ul><p><span style="font-weight: 400;">Our legitimate interest to contact employees of our Partners during the process of providing our services.</span></p></td></tr><tr><td><p><b>Duration of data processing</b></p><p><span style="font-weight: 400;"></span></p></td><td><p><span style="font-weight: 400;">During the term of the validity of your usage of our Services and 5 (years) years after the termination of it.</span></p></td></tr></tbody></table><p><b><span style="font-weight: 400;">When you interact with services, our servers store your unique activity log, which collects certain administrative and traffic information, including.</span></b></p><p><b><span style="font-weight: 400;">source IP address</span></b></p><p><b><span style="font-weight: 400;">access time</span></b></p><p><b><span style="font-weight: 400;">date of access</span></b></p><p><b><span style="font-weight: 400;">visited web pages</span></b></p><p><b><span style="font-weight: 400;">language used</span></b></p><p><b><span style="font-weight: 400;">software crash reports</span></b></p><p><b><span style="font-weight: 400;">type of browser used</span></b></p><p><b><span style="font-weight: 400;">This information is needed to ensure we provide services of the highest quality.</span></b></p><p><b><span style="font-weight: 400;">We never collect personal information about you without your knowledge.</span></b></p><p><b><br><br></b></p><ol start="3"><li><b><b> MEANS OF GATHERING AND PROCESSING DATA</b></b></li></ol><p><b><span style="font-weight: 400;">We may automatically collect certain data, as discussed above, and receive Personal Data about you where you provide such information voluntarily through the services or other communications and interactions on the 20bets site.</span></b></p><p><b><span style="font-weight: 400;">We may also receive personal information from online vendors and service providers, and from customer lists lawfully acquired from third-party suppliers.</span></b></p><p><b><span style="font-weight: 400;">In addition, we may use the services of third - party service suppliers for technical support of your online transactions and for maintaining your account.</span></b></p><p><b><span style="font-weight: 400;">We will have access to any information you provide to such suppliers, service providers, and third - party e - commerce services.We will use the Personal Information in accordance with the provisions of this Privacy Policy.</span></b></p><p><b><span style="font-weight: 400;">This information will be disclosed to third parties outside the company only in accordance with this Privacy Policy and the legislation of your state.</span></b></p><ol start="4"><li><b><b> THE USE OF DATA</b></b></li></ol><p><b><span style="font-weight: 400;">We use the personal information that you provide to us when deliver Services,to ensure the necessary security, for the identity verification and checks, to process any of payments, as well as to assist your participation in third - party promotions, that meet certain business conditions, and for any other purposes related to the operation of our affiliate platform.</span></b></p><p><b><span style="font-weight: 400;">Therefore, during the provision of Services we may share your personal information with our carefully selected partners (including any other parties that have arrangements with you about the sharing of your data).</span></b></p><p><b><span style="font-weight: 400;">Your personal information may also be used by us to provide you with:</span></b></p><ul><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">promotional offers and information about our products and services</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">promotional offers and information about our partners’ products and services, in order to enlarge the range of products provided to end users.</span></b></li></ul><p><b><span style="font-weight: 400;">From time to time, we may request information from you via surveys or competitions. Participation in these surveys or competitions is completely voluntary and you have the choice of whether or not to disclose your personal information.</span></b></p><p><b><span style="font-weight: 400;">You may ‘opt out’ of receiving any promotional communications either by choosing to opt out via your account settings available on our sites or through our services in response to a promotional email you receive from us at any time by sending an e-mail.</span></b></p><p><b><span style="font-weight: 400;">By taking part in any competition or accepting winnings(prizes) from us, you consent to the use of your name for promotional purposes without additional remuneration, except where prohibited by law.</span></b></p><p><b><span style="font-weight: 400;">If you have not unequivocally decided whether to receive promotional information from us, we may use your personal information(including your e - mail address and phone number) to provide you with information regarding our products, services, and promotions, including other gaming products (including online poker, casino, betting, backgammon etc.) and third - party products and services carefully selected by us.</span></b></p><ol start="5"><li><b><b> CONSENT OF THE PERSONAL DATA SUBJECT</b></b></li></ol><p><b><span style="font-weight: 400;">Your provision of the services is your voluntary agreement with our Privacy Policy and you thereby give us the right to collect, process, and store your personal data.</span></b></p><p><b><span style="font-weight: 400;">This Privacy Policy should be read in conjunction with our Terms and Conditions and any additional applicable Terms and Conditions published on our platforms and websites.</span></b></p><p><b><span style="font-weight: 400;">We may periodically make changes to this Privacy Policy and will notify you of these changes by publishing the modified terms on our platforms and websites.</span></b></p><p><b><span style="font-weight: 400;">Your continued provision of the services following any changes to this Privacy Policy constitutes your acceptance of the changes.</span></b></p><p><b><span style="font-weight: 400;">The processing of your personal data at 20bets.partners starts only after you have clearly expressed the approval that establishes and confirms freely given, explicit, informed, and unambiguous expression of your consent to the processing of your personal data (hereinafter «Consent»).</span></b></p><p><b><span style="font-weight: 400;">The Consent you give us freely, voluntarily and in your interest is explicit, informed, and conscious.</span></b></p><p><b><span style="font-weight: 400;">Your consent to the processing of personal data may be given to us by you in any form that allows to confirm that it was received.</span></b></p><p><b><span style="font-weight: 400;">In this event the Consent should contain the following information.</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">surname, first name, patronymic (if applicable), address of the subject of personal data, number of the main identification document, document issue date and the issuing authority, or surname, first name, patronymic, address of the representative of the personal data subject, the number, issue date, and issuing authority of their main identification document, the requisites of the notarized power of attorney or other document confirming the authority of that representative (upon receipt of the consent from the representative of the personal data subject)</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">the postal address of 20bets.partners receiving the consent of the personal data subject</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">the purposes of processing the personal data</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">a list of the personal data, for the processing of which the consent of the subject of personal data is given</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">the name and address of the person (legal entity) that is processing the personal data on behalf of 20bets.partners, if the processing is delegated to such person (entity)</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">a list of actions on personal data to which the consent is given; general overview of the personal data processing methods</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">the period during which the consent of the subject of personal data is valid, as well as the method of its withdrawal</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">the signature of the personal data subject</span></b></li></ul><p><b><span style="font-weight: 400;">- BY WAY OF IMPLICATIVE ACTIONS OF a personal data subject which express their will to establish a legal relationship with 20bets.parners, not in the form of an oral or written expression of their will, but by their behavior, from which such intention can be concluded (for example, registration on the 20bets.partners website, execution of monetary transactions into their personal account obtained through registration on the 20bets.partners website, which is a condition for participating in affiliate program in accordance with the Terms and Conditions of 20bets.partners, compliance with the rules established by the advertising rules, etc.).</span></b></p><p><b><span style="font-weight: 400;">20bets.partners does not require your Consent to process your personal data in the following cases:</span></b></p><ul><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where the processing of personal data is necessary to achieve the objectives provided for by international treaties or laws of local jurisdictions, for the performance and discharge of the functions, powers, and duties conferred by law;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where processing of personal data is necessary for the administration of justice, the execution of a court decision or a decision by another legal body or an official subject to execution in accordance with local laws;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where processing of personal data is necessary to protect the life, health, or other vital interests of the subject of personal data if obtaining their consent is not possible;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where processing of personal data is necessary for the purposes of exercising the rights and legitimate interests of 20bets.partners or third parties, or for the achievement of socially significant purposes, provided that this does not violate the rights and freedoms of your personal data;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where processing of personal data is carried out for statistical or other research purposes, subject to obligatory anonymization of your personal data, except when personal data is processed for marketing purposes;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where access to the personal data that is being processed has been provided by you to an unlimited number of persons;</span></b></li><li style="font-weight: 400;" aria-level="2"><b><span style="font-weight: 400;">where personal data that is being processed is subject to publication or mandatory disclosure in accordance with the laws of local jurisdictions.</span></b></li></ul><ol start="6"><li><b><b> HOW LONG DO WE STORE YOUR PERSONAL DATA?</b></b></li></ol><p><b><span style="font-weight: 400;">Personal data specified in this Privacy Policy shall be stored and otherwise processed for no longer than the period specified in this Privacy Policy for each relevant data category and for no longer than necessary to achieve the purposes for which the data were collected.</span></b></p><p><b><span style="font-weight: 400;">In those cases when the data storage period is not indicated in this Privacy Policy, your data will be stored no longer than necessary for achievement of the purposes, for which the data were collected, or for a period set by legal acts.</span></b></p><p><b><span style="font-weight: 400;">After the end of your data processing and storage period set in this Privacy Policy, we destroy your data or anonymise them irreversibly and reliably as soon as possible, within a period reasonably necessary for performance of such an action.</span></b></p><p><b><span style="font-weight: 400;">If different processing or storage periods can be applied to the same data category for different purposes in accordance with this Privacy Policy, the longest of the applicable periods shall apply.</span></b></p><p><b><span style="font-weight: 400;">Your personal data can be stored for a period longer than indicated in this Privacy Policy only when:</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">your data is necessary for the proper administration of damages (for example, you have caused damage to us or other persons), examination and settlement of a dispute, complaint, the protection of our legitimate interests or those of third parties;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">that is necessary in order that we could defend ourselves from existing or threatening demands, claims or legal actions and exercise our rights;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">there are reasonable suspicions of violations, illegal activities, which are or may be a subject to investigation;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">this is necessary for ensuring the functioning, resilience, integrity of backup copies, information systems, traceability of operations, statistical and other similar purposes;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">there are other grounds provided for in legal acts.</span></b></li></ul><ol start="7"><li><b><b> INFORMATION DISCLOSURE</b></b></li></ol><p><b><span style="font-weight: 400;">We do not disclose your Personal Information to companies, organizations or individuals not associated with 20bets.partners.</span></b></p><p><b><b>Service providers</b></b></p><p><b><span style="font-weight: 400;">In order to provide our services, we rely on various service providers (e.g. providers of server hosting, data centres, cloud computing, audit, accounting, legal, tax advisory services, administration of damages, and other services).</span></b></p><p><b><span style="font-weight: 400;">Our data processors we use are usually located in the Member States of the European Union or store data entrusted to them by us in the European Union. However, when we manage our social media Accounts, we receive and provide data to social network platform operators (e.g. LinkedIn, Facebook, Instagram), which also operate outside the European Union, e.g. in the USA. We closely follow practices of data protection supervisory authorities and the guidelines on the transfer of data outside the European Union, and we diligently consider conditions, under which data are transferred and may be subsequently processed and stored after the transfer outside the European Union.</span></b></p><p><b><b>Third parties</b></b></p><p><b><span style="font-weight: 400;">If necessary and legally justified, we also provide your data to separate data controllers, namely to the competent authorities, institutions, organisations, also other data controllers who are entitled to receive information in line with the applicable legislation and/or our legitimate interests, or based on your consent. Please see below a non-exhaustive list of examples of such situations:</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">we have the right and the obligation to transfer information to the competent authorities (pre-trial investigation bodies, etc.) for the purposes of prevention of fraud, offence and crime prevention and investigation;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">we provide data to service providers that are separate controllers of your data (partners whose offers you have agreed to receive, etc.).</span></b></li></ul><p><b><span style="font-weight: 400;">We may disclose your Personal Information if required to do so by applicable law, or if we believe in good faith that such actions are necessary to comply with any legal issue or process that concerns us, any of our websites or services or in circumstances where we are essentially bound by legal obligation protect our rights or property protect the personal safety of our service users or the public.</span></b></p><p><b><span style="font-weight: 400;">If, in our opinion and sole determination, you are found to have deceived us or attempted to deceive us, or any other service user in any way including but not limited to game tampering</span></b></p><p><b><span style="font-weight: 400;">and payment fraud.</span></b></p><p><b><span style="font-weight: 400;">If we have grounds to suspect you of payment fraud, including the use of stolen credit cards, or any other fraudulent activity, including any payment reversal or other, payment cancellation, or prohibited transactions, including money laundering, we reserve the right to share this information together with your identity information with other online gaming sites, banks, credit card companies, appropriate regulatory agencies, and relevant law enforcement authorities.</span></b></p><p><b><span style="font-weight: 400;">For the purpose of public research on the prevention of addiction, your data can be passed on to the relevant institutions.</span></b></p><ol start="8"><li><b><b> COOKIES</b></b></li></ol><p><b><span style="font-weight: 400;">The registration process cookies will hold information collected during your registration and will allow us to recognize you as a customer and provide you with the services you require. We may also use this data to better understand your online interests and preferences and to constantly enhance your visits to our platforms and use of our services.</span></b></p><p><b><span style="font-weight: 400;">Our servers use three different types of cookies.</span></b></p><p><b><span style="font-weight: 400;">«Session-based» cookies: This type of cookie is only allocated to your computer for the duration of your visit to our website. A session-based cookie helps you navigate our website faster and, if you are a registered customer, allows us to give you information that is more relevant to you. This cookie automatically expires when you close your browser.</span></b></p><p><b><span style="font-weight: 400;">«Persistent» cookies: This type of cookie will remain on your computer for a set period of time for each cookie. Flash cookies are also persistent.</span></b></p><p><b><span style="font-weight: 400;">«Analytical» cookies: This type of cookie allows us to recognize and count the number of visitors to our site and see how visitors use our services. This helps us improve the way our sites work, for example, by ensuring you can log in and find what you are looking for easily.</span></b></p><p><b><span style="font-weight: 400;">You make a decision and you always have a choice of whether to accept or decline cookies.</span></b></p><p><b><span style="font-weight: 400;">Most web browsers automatically accept cookies, but, if you prefer, you can modify your browser settings to keep control over your cookies.</span></b></p><p><b><span style="font-weight: 400;">You can use your web browser to.</span></b></p><p><b><span style="font-weight: 400;">delete all cookies;</span></b></p><p><b><span style="font-weight: 400;">block all cookies;</span></b></p><p><b><span style="font-weight: 400;">allow all cookies;</span></b></p><p><b><span style="font-weight: 400;">block third-party cookies;</span></b></p><p><b><span style="font-weight: 400;">clear all cookies when the browser is closed;</span></b></p><p><b><span style="font-weight: 400;">open a "private browsing"/"incognito" session that allows you to browse the Internet without storing data locally;</span></b></p><p><b><span style="font-weight: 400;">install add-ons and plug-ins to extend browser options.</span></b></p><p><b><span style="font-weight: 400;">For more information please read Cookie policy, placed here </span><a href="https://20bets.partners/cookiepolicy"><span style="font-weight: 400;">https://20bets.partners/cookiepolicy</span></a><span style="font-weight: 400;"></span></b></p><ol start="9"><li><b><b> CONSENT TO USE OF ELECTRONIC SERVICE PROVIDERS</b></b></li></ol><p><b><span style="font-weight: 400;">In order to make a comission payment to you, you will be required to receive money from us.To facilitate such services we may use third - party electronic payment systems to process the required financial transactions.</span></b></p><p><b><span style="font-weight: 400;">By agreeing to and accepting this Privacy Policy, you expressly and voluntarily consent to the transfer to third parties of your personal information which is necessary for the processing and completion of monetary transactions including, when necessary, to the transfer of your personal information outside of your country.</span></b></p><p><b><span style="font-weight: 400;">We take steps to ensure that your privacy is protected when using third party payment systems.</span></b></p><ol start="10"><li><b><b> CONSENT TO SECURITY REVIEWS</b></b></li></ol><p><b><span style="font-weight: 400;">We reserve the right to conduct a security review at any time to validate the registration details provided by you and to verify our financial transactions, in order to prevent potential breaches of our Terms and Conditions and of any applicable law.</span></b></p><p><b><span style="font-weight: 400;">By participating in our affiliate program and thereby agreeing to our Terms and Conditions, you authorize us to use your Personal Information and to disclose your Personal Information to third parties for the purposes of validating the information you provide during registration of account, including, where necessary, the transfer of your personal information outside your country.</span></b></p><p><b><span style="font-weight: 400;">Security reviews may include but are not limited to ordering a credit report and otherwise verifying the information you provide against third - party databases.</span></b></p><ol start="11"><li><b><b> SECURITY</b></b></li></ol><p><b><span style="font-weight: 400;">We understand the importance of providing security and the methods needed to secure the confidentiality, integrity, and accessibility of information.We store all personal information we receive directly from you in an encrypted and password -protected database stored within our secure network behind active up-to-date firewall software.</span></b></p><p><b><span style="font-weight: 400;">Our Services support SSL Version 3 with 128-bit encryption.</span></b></p><p><b><span style="font-weight: 400;">We also take measures to ensure our subsidiaries, agents, partners, affiliates, and suppliers employ adequate security measures.</span></b></p><p><b><span style="font-weight: 400;">However, sending information via the internet is usually not completely secure, and we cannot guarantee the security of your data while it is being sent.</span></b></p><p><b><span style="font-weight: 400;">ANY DATA, WHICH YOU SEND, IS SENT AT YOUR OWN RISK.</span></b></p><p><b><span style="font-weight: 400;">20bets.partners has all security procedures and features in place to protect your data after it is received.</span></b></p><ol start="12"><li><b><b> PROTECTION OF MINORS</b></b></li></ol><p><b><span style="font-weight: 400;">Our affiliate program are not intended for persons under the age of eighteen (18) or the lawful age in their respective jurisdiction.</span></b></p><p><b><span style="font-weight: 400;">Any person who provides their information to us through any part of the registration process confirms to us that they are eighteen (18) years of age (or the lawful age in their respective jurisdiction) or older.</span></b></p><p><b><span style="font-weight: 400;">It is our policy to uncover attempts by minors to access our services which may require an additional security review.</span></b></p><p><b><span style="font-weight: 400;">If we become aware that a minor has attempted to or has submitted personal information via our platform, we will not accept their information and will take all steps to purge the information from our records.</span></b></p><ol start="13"><li><b><b> INTERNATIONAL TRANSFERS</b></b></li></ol><p><b><span style="font-weight: 400;">Personal Information collected by us may be stored and processed in any country in which we or our affiliates, suppliers, partners or agents provide marketing services and services of our affiliate platform.</span></b></p><p><b><span style="font-weight: 400;">By using our affiliate platform, you expressly consent to any transfer of information outside your country (including to countries that may not be considered as having adequate privacy laws).</span></b></p><p><b><span style="font-weight: 400;">Nevertheless, we take steps to ensure that our agents, partners, affiliates, and suppliers comply with our standards of privacy and this Privacy Policy regardless of their location.</span></b></p><ol start="14"><li><b><b> THIRD-PARTY RELATIONSHIPS</b></b></li></ol><p><b><span style="font-weight: 400;">We cannot ensure the protection of any information that you provide to a third-party website that links to our services or of any other information collected by any third party managing it in compliance with our affiliate program (if applicable) or otherwise, since these third-party online services and websites are not owned by us and are operated independently from us.</span></b></p><p><b><span style="font-weight: 400;">Be careful.</span></b></p><p><b><span style="font-weight: 400;">Any information collected by these third parties is governed by the privacy policy, if any, of such third party.</span></b></p><ol start="15"><li><b><b> LEGAL DISCLAIMER</b></b></li></ol><p><b><span style="font-weight: 400;">We are not responsible for events beyond our direct control.</span></b></p><p><b><span style="font-weight: 400;">Due to the complex and ever-changing nature of our technologies and business, we provide comprehensive, but we do not guarantee an error-free, operation regarding the confidentiality of your personal information when you visit other websites using links located on our website. Websites that are beyond our control, and especially not covered by this Privacy Policy, should provide you with an opportunity to familiarize yourself with their security policies. If you visit other websites, you should be aware that the operators of these websites can collect your personal information, which they will use in accordance with their privacy policy, which will differ from ours.</span></b></p><p><b><span style="font-weight: 400;">We do not guarantee the security of your data, while it is being transmitted through channels of communication.</span></b></p><p><b><span style="font-weight: 400;">ANY DATA, WHICH YOU SEND, IS SENT AT YOUR OWN RISK.</span></b></p><p><b><span style="font-weight: 400;">We are also not responsible for any direct or indirect damage arising from the unlawful use or theft of your Personal Information.</span></b></p><ol start="17"><li><b><b> YOUR RIGHTS</b></b></li></ol><p><b><span style="font-weight: 400;">You, as a data subject, have certain rights under the GDPR, including the right:</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to request access to your personal data and get a copy thereof;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to request rectification or restriction of inaccurate or incomplete personal data;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to request deletion or restriction of personal data which are excessive or unlawfully processed;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to object to the processing of your personal data;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to request transfer of your personal data provided in a structured, machine-readable format;</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to withdraw your consent at any time if data processing is based on the data subject’s consent (withdrawal of the data subject’s consent shall not affect lawfulness of data processing before the withdrawal of the consent);</span></b></li></ul><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">to file a complaint with the Data State Inspectorate of your country, we would recommend contacting us first and we will try to resolve all your concerns together with you.</span></b></li></ul><p><b><b>How can you contact us to exercise of your rights?</b></b></p><p><b><span style="font-weight: 400;">You can submit your request for the exercise of your rights to us in the following ways:</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">submitting a request by e-mail at </span><a href="mailto:support-en@20bets.com"><span style="font-weight: 400;">support-en@20bets.com</span></a><span style="font-weight: 400;"> or</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">sending a request by post to the address Abraham de Veerstraat 1, Curacao.</span></b></li></ul><p><b><b>17.1. The right to access data processed and the right to obtain a copy of personal data</b></b></p><p><b><span style="font-weight: 400;">Should you wish to obtain a copy of your personal data, contact us at support-en@20bets.com.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>17.2. Right to rectification of personal data</b></b></p><p><b><span style="font-weight: 400;">In case of changes in data presented by you to us in your Application (surname, e-mail address, telephone number, etc), or in case you think that the information processed by us about you is inaccurate or incorrect, you have the right to demand to modify, amend or correct such information.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>17.3. Right to withdraw the consent</b></b></p><p><b><span style="font-weight: 400;">When we process your data on the basis of your consent, you have the right to withdraw your consent at any time and data processing based on your consent will stop.</span></b></p><p><b><span style="font-weight: 400;">You have the right to withdraw consent at any time by e-mail:support-en@20bets.com.</span></b></p><p><b><b>17.4. Right to object to data processing, when processing is based on legitimate interests</b></b></p><p><b><span style="font-weight: 400;">You have the right to object to personal data processing, when personal data is processed based on our legitimate interests by e-mail:support-en@20bets.com.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>17.5. Right to erasure (right to be forgotten)</b></b></p><p><b><span style="font-weight: 400;">When there are certain circumstances indicated in the legislation on personal data protection (e.g. when the basis for data processing has disappeared, etc.), you have the right to request that we erase your personal data. In order to exercise this right, please contact us.</span></b></p><p><b><span style="font-weight: 400;">If you provide us with the request to erase all or some of your data and express your wish “to be forgotten”, we will no longer process those data of yours which will no longer be necessary for the purposes for which they were collected or otherwise processed. After you have exercised the right “to be forgotten”, your personal data will be further processed for the following main purposes and on the following main grounds (the list is non-exhaustive):</span></b></p><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">for the purposes of meeting accounting, tax requirements, personal data will be further processed according to Article 6(1)(c) of the GDPR (data processing is necessary to fulfil the legal obligation imposed on the data controller);</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">in order to manage clients’ complaints and other requests and inquiries, personal data will be processed according to Article 6(1)(b) of the GDPR (it is necessary to process data in order to fulfil the contract, a party to which the data subject is);</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">in case of disputes, administration of damages, in order to pursue our other legal claims and protect our rights, data will be further processed according to Article 6(1)(f) of the GDPR (data processing is necessary in pursuance of legitimate interests of the data controller or a third party).</span></b></li></ul><p><b><b>17.6. Right to restriction of data processing</b></b></p><p><b><span style="font-weight: 400;">When there are certain circumstances indicated in personal data protection legislation (when personal data is processed unlawfully, when you challenge data accuracy, you stated an objection to data processing on the basis of our legitimate interest, etc.), you also have the right to restrict your data processing.</span></b></p><p><b><span style="font-weight: 400;">However, we must point out that, because of the restriction of data processing and during the period of such restriction, we may be unable to guarantee you all the Services.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><span style="font-weight: 400;">In order to exercise this right, please contact us.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>17.7. Right to data portability</b></b></p><p><b><span style="font-weight: 400;">In order to exercise this right, please contact.</span></b></p><p><b><span style="font-weight: 400;"></span></b></p><p><b><b>17.8. Right to lodge a complaint</b></b></p><p><b><span style="font-weight: 400;">If you think that we process your data in breach of requirements of personal data protection legal acts, we always ask that you contact us directly at first. We believe that our good will efforts will be enough to disperse any doubts you may have, to answer your questions, to satisfy requests and correct any errors we made, if any.</span></b></p><p><b><span style="font-weight: 400;">If you are not satisfied with a solution we suggest or if, in your opinion, we are not taking actions that must be taken in order to satisfy your request, you will have the right to lodge a complaint with the Data State Inspectorate of your country.</span></b></p><ol start="18"><li><b><b> HOW DO WE ENSURE THE SECURITY OF YOUR PERSONAL DATA?</b></b></li></ol><p><b><span style="font-weight: 400;">We use appropriate organisational and technical personal data security measures, including protection against unauthorized or unlawful processing of data and against accidental loss, destruction or damage. Such measures have been selected taking into account the risks that may arise for your rights and freedoms as those of a data subject.</span></b></p><p><b><span style="font-weight: 400;">We regularly monitor our systems for possible breaches or attacks, but it is not possible to guarantee full security of information transmitted online. With this in mind, you provide us with information by use of the internet connection at your sole discretion and assuming any associated risks.</span></b></p><ol start="19"><li><b><b> YOU CAN CONTACT US AS FOLLOWS:</b></b></li></ol><ul><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">Edjowa -Gaming N.V., </span><span style="font-weight: 400;">Abraham de Veerstraat 1, Curacao</span></b></li><li style="font-weight: 400;" aria-level="1"><b><span style="font-weight: 400;">email: support-en@20bets.com.</span></b></li></ul><p><b><span style="font-weight: 400;">You may contact us at any time if you want to find out what of your personal information we collect, process, and store, and also from which sources we have obtained it want to confirm the accuracy of the personal information we have collected about you would like to update your personal information; and/or have any complaint regarding our use of your Personal Information</span></b></p><p><b><span style="font-weight: 400;">If required, we will update any information you have provided to us, given that you prove the necessity for such changes and verify your identity.</span></b></p><p><b><span style="font-weight: 400;">For the avoidance of doubt, nothing in this Privacy Policy shall allow us to retain your Personal Data if we are required to provide it by the law of your country.</span></b></p><p><b><br><br><br><br><br><br></b></p></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+<style>
+  footer{
+    font-family: 'Ubuntu', 'Helvetica', 'Arial', sans-serif;
+    font-size: 12px;
+  }
+</style>
+        <footer style="background-color: rgb(44, 52, 58); color: rgb(159, 168, 188); padding: 25px 10px; font-size: 13px; flex: 0 0 auto;">
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <p style="text-align: center; margin: 0; font-size: 12px;">
+              20BETS Partners uses cookies to enhance your website experience. By continuing to browse the 20BETS Partners website, you consent to the use of these cookies. <br>
+              <a href="{% url 'cookies' %}" style="color: rgb(2, 178, 130); ">Find out more</a>
+            </p>
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center; margin-top: 25px; font-size: 14px;">
+            <div style="text-align: center;">
+              <nav style="display: inline-block; width: 100%;">
+                <ul style="list-style-type: none; padding: 0; text-align: center; margin: 0; " id="footyul">
+                  <li style="margin-bottom: 10px;">
+                    <a href="{% url 'contacts' %}" style="color: rgb(255, 255, 255); text-decoration: none;">Contacts</a>
+                  </li>
+                  <li style="margin-bottom: 10px;">
+                    <a href="{% url 'news' %}" style="color: rgb(255, 255, 255); text-decoration: none;">News</a>
+                  </li>
+                  <li style="margin-bottom: 10px;">
+                    <a href="{% url 'privacy_policy' %}" style="color: rgb(255, 255, 255); text-decoration: none;">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'cookies' %}" style="color: rgb(255, 255, 255); text-decoration: none;">Cookie Policy</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <style>
+                @media screen and (max-width: 768px) {
+                  #footyul {
+                    display: block;
+                    text-align: center;
+                  }
+
+                  #footyul li {
+                    display: block;
+                    margin-bottom: 13px; /* Adjust spacing between items as needed */
+
+                  }
+                }
+              </style>
+
+              <div style="color: rgb(255, 255, 255); margin-top: 10px; padding: 10px; font-size: 13px;">
+                Copyright © 2023-2024 "20 Bet Partners ". All rights reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
+
+      </main>
+      <!-- End Main -->
+
+
+
+
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/script_dash.js' %}"></script>
+  </body>
+</html>

@@ -22,4 +22,7 @@ urlpatterns=[
     path('summary/',views.summary,name='summary'),
     path('test/',views.test,name='test'),
     path('webpages/',views.webpages,name='webpages'),
+    path('cookies/',views.cookies,name='cookies'),
+    path('news/',views.news,name='news'),
+    path('privacy_policy/',views.privacy_policy,name='privacy_policy'),
 ]
