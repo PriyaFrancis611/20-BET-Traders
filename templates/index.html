@@ -75,7 +75,7 @@
   body{
     {
   font-family: "Varela Round", serif !important;
-  
+
 }
   }
 </style>
@@ -101,7 +101,7 @@
               class="header-menu-item active-item about-product"
               data-translate="about_product"
             >About Us</a>
-            <a
+            <a href="./index.html#terms"
               class="header-menu-item terms-button style-terms-button"
               data-translate="conditions"
             >Terms</a>
@@ -111,7 +111,7 @@
               class="header-menu-item"
               data-translate="reviews"
             >Testimonials</a>
-            <a
+            <a href="./index.html#contacts"
               class="header-menu-item contact-button style-contact-button"
               data-translate="contacts"
             >Contacts</a>
@@ -277,7 +277,7 @@
           <div style="font-size: 1.5em; font-weight: bold; color: white; text-align: center; margin-bottom: 20px;">
             Why choose 20Bets affiliate program?
         </div>
-        
+
         <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; color: white;">
           <div style="display: flex; flex-direction: column; align-items: center;">
               <div style="background: linear-gradient(rgb(30, 30, 30) 0%, rgb(43, 43, 43) 100%); box-shadow: rgba(7, 7, 7, 0.31) 0px 2.7rem 5.4rem, rgb(28, 28, 28) 0px -1rem 1rem inset, rgb(45, 45, 45) 0px 1rem 1rem inset; border-radius: 50%; padding: 20px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
@@ -285,21 +285,21 @@
               </div>
               <div style="font-size: 0.9em; font-weight: bold; text-align: center; margin-top: 10px;">Upto 60%  <br> Commission</div>
           </div>
-      
+
           <div style="display: flex; flex-direction: column; align-items: center;">
               <div style="background: linear-gradient(rgb(30, 30, 30) 0%, rgb(43, 43, 43) 100%); box-shadow: rgba(7, 7, 7, 0.31) 0px 2.7rem 5.4rem, rgb(28, 28, 28) 0px -1rem 1rem inset, rgb(45, 45, 45) 0px 1rem 1rem inset; border-radius: 50%; padding: 20px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
                   <img src="{% static 'images/2.svg' %}" alt="Payment Models Icon" style="width: 40px; height: 40px;">
               </div>
               <div style="font-size: 0.8em; font-weight: bold; text-align: center; margin-top: 10px;">Regular <br> Payouts</div>
           </div>
-      
+
           <div style="display: flex; flex-direction: column; align-items: center;">
               <div style="background: linear-gradient(rgb(30, 30, 30) 0%, rgb(43, 43, 43) 100%); box-shadow: rgba(7, 7, 7, 0.31) 0px 2.7rem 5.4rem, rgb(28, 28, 28) 0px -1rem 1rem inset, rgb(45, 45, 45) 0px 1rem 1rem inset; border-radius: 50%; padding: 20px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
                   <img src="{% static 'images/3.svg' %}" alt="Weekly Payments Icon" style="width: 40px; height: 40px;">
               </div>
               <div style="font-size: 0.9em; font-weight: bold; text-align: center; margin-top: 10px;">A Large <br> Creative <br> Team</div>
           </div>
-      
+
           <div style="display: flex; flex-direction: column; align-items: center;">
               <div style="background: linear-gradient(rgb(30, 30, 30) 0%, rgb(43, 43, 43) 100%); box-shadow: rgba(7, 7, 7, 0.31) 0px 2.7rem 5.4rem, rgb(28, 28, 28) 0px -1rem 1rem inset, rgb(45, 45, 45) 0px 1rem 1rem inset; border-radius: 50%; padding: 20px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
                   <img src="{% static 'images/4.svg' %}" alt="Payout Periods Icon" style="width: 40px; height: 40px;">
@@ -308,8 +308,7 @@
           </div>
       </div>
 
-
-<!-- 
+<!--
           <div class="top-partners-block">
             <div class="top-tabs-block">
               <div class="partners-tab partners-tab1">
@@ -344,41 +343,46 @@
 
 
           <div class="center-partners-block" data-translate="lifetime_rs">Lifetime RS - even without new traffic</div>
+
+
           <div class="bottom-partners-blocks">
+
+
             <div class="bottom-partners-block bottom-partners-block1">
               <span data-translate="bottom_partners_tile1">Personal Landing <br> Pages</span
               ><img
-                src="{% static 'images/bottom-partners-icon1.webp' %}"
-                class="bottom-partners-icon1"
+                src="{% static 'images/bottom-partners-icon1.png' %}"
+
                 alt=""
               />
             </div>
             <div class="bottom-partners-block bottom-partners-block2">
               <span data-translate="bottom_partners_tile2">Banners and PreRolls</span
-              ><img src="{% static 'images/bottom-partners-icon2.webp' %}" alt="" />
+              ><img src="{% static 'images/bottom-partners-icon2.png' %}" alt="" />
             </div>
             <div class="bottom-partners-block bottom-partners-block3">
               <span data-translate="bottom_partners_tile3">Promocodes</span
-              ><img
-                src="{% static 'images/bottom-partners-icon3.webp' %}"
-                class="bottom-partners-icon3"
+              >
+              <img
+                src="{% static 'images/bottom-partners-icon3.png' %}"
+
                 alt=""
               />
             </div>
             <div class="bottom-partners-block bottom-partners-block4">
               <span data-translate="bottom_partners_tile4">Reviews and Articles</span
-              ><img src="{% static 'images/bottom-partners-icon4.webp' %}" alt="" />
+              ><img src="{% static 'images/bottom-partners-icon4.png' %}" alt="" />
             </div>
           </div>
         </div>
-        <div class="coop-terms-block">
+        <div class="coop-terms-block" id="terms">
           <img
             src="{% static 'images/terms-left.webp' %}"
             alt=""
             class="left-terms-image"
           />
           <img
-            src="{% static 'images/terms-right.webp'%}"
+            src="{% static 'images/terms-right.webp' %}"
             alt=""
             class="right-terms-image"
           />
@@ -389,27 +393,7 @@
             data-aos-delay="100"
           >transparent cooperation terms</div>
           <div class="revenue-share">REVENUE SHARE</div>
-          <!--<div class="terms-board-block">
-            <div class="terms-board-header">
-              <span>Amount of fd</span
-              ><span
-                >revenue share, %<br />
-                (BETTING + CASINO)
-              </span>
-            </div>
-            <div class="terms-board-main">
-              <div><span>0-9</span><span>20%</span></div>
-              <div><span>10-24</span><span>25%</span></div>
-              <div><span>25-34</span><span>30%</span></div>
-              <div><span>35-44</span><span>35%</span></div>
-              <div><span>45-54</span><span>40%</span></div>
-              <div><span>55-99</span><span>45%</span></div>
-              <div><span>100+</span><span>50%</span></div>
-            </div>
-            <div class="terms-board-footer">
-              <span data-translate="exclusive_deals"></span><span>55+%</span>
-            </div>
-          </div>//-->
+
           <div class="get-sale-block" data-translate="get_sale_title">INDIVIDUAL CONDITIONS FOR EACH PARTNER from 20% to 50% <span>
             EXCLUSIVE CONDITIONS FOR TOP PARTNERS - 55%
           </span>
@@ -486,35 +470,7 @@
 
 
 
-
-
-
-
-          <!-- <div class="cpa-items2-mobile">
-            <p data-translate="cpa_items_title"></p>
-            <ul>
-              <li data-translate="cpa_items_item1"></li>
-              <li data-translate="cpa_items_item2"></li>
-              <li data-translate="cpa_items_item3"></li>
-              <li data-translate="cpa_items_item4"></li>
-              <li data-translate="cpa_items_item5"></li>
-            </ul>
-            <div
-              class="cpa-items2-bottom"
-              data-translate="cpa_items_bottom"
-            ></div>
-            <img src="./assets/images/cpa-items-img.webp" alt="" />
-          </div> -->
         </div>
-
-
-
-
-
-
-
-
-
 
 
         <div class="traffic-type-block">
@@ -569,7 +525,7 @@
             </div>
           </div>
           <a
-            href="./backend/register1.html"
+            href="./reg.html"
             class="registration-button-wrapper"
             target="_blank"
             ><button
@@ -689,6 +645,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="managers-block">
           <!--<div
             class="title"
@@ -725,7 +694,7 @@
               <img src="./assets/images/manager4.webp" alt="" />
             </a>
           </div>//-->
-          <div class="support-info">
+          <div class="support-info" id="contacts">
             <span data-translate="support_t">Contacts:</span>
 	    <a href="https://t.me/Roland_tl_aff">Telegram</a>
             <a href="mailto:support@20betpartners.com">support@20betpartners.com</a>
@@ -733,6 +702,7 @@
           </div>
         </div>
       </main>
+
 
 
 

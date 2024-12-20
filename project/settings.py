@@ -121,11 +121,23 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'STATIC')
 ]
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'priya.francis1506@gmail.com'
+# EMAIL_HOST_PASSWORD = 'buuq uoox shft xsbf'
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# ADMIN_EMAIL = 'priya.francis611@gmail.com'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.20betpartnerns.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.titan.email'
+EMAIL_PORT = 465
 EMAIL_HOST_USER = 'info@20betpartners.com'
 EMAIL_HOST_PASSWORD = 'Partners@backend.in'
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'info@20betpartners.com'
+

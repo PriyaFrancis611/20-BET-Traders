@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en-GB" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title data-react-helmet="true">Log in</title>
+    <title data-react-helmet="true">Reset Password</title>
     <meta
       data-react-helmet="true"
       property="og:title"
@@ -2078,7 +2077,7 @@
                   <a
                     class="LocalizedNavLinkSC-sc-1i2ycx3-4 mASKr"
                     title="Terms and Conditions"
-                    href="{% url 'terms' %}"
+                    href="https://blacksploit.github.io/20Bets/terms/terms.html"
                     >Terms and Conditions</a
                   >
                 </div>
@@ -2164,9 +2163,9 @@
 
           <div class="HeaderBottom-sc-1dbwsjr-5 emOSYH">
             <div class="Container-ovh3eh-0 czepVh">
-              <a class="HeaderLogo-sc-1dbwsjr-7 kGvYEF" href="{% url 'index' %}"
+              <a class="HeaderLogo-sc-1dbwsjr-7 kGvYEF" href="https://blacksploit.github.io/20Bets/index.html"
                 ><img
-                  src="{% static 'images/logowhite.webp' %}"
+                  src="https://blacksploit.github.io/20Bets/logowhite.webp"
                   alt="logo"
                   class="ImgLogo-sc-1dbwsjr-6 hEDIUU"
                   style="width: 85px;"
@@ -2202,7 +2201,7 @@
           <div class="MainSign-sc-1mpvhq9-6 iPgrga">
             <div class="SignInLayout-sc-3efhk0-0 gomxgj">
               <div class="SignIn-d8mmcq-0 eCgMma">
-                <form method="POST" action="{% url 'login1' %}">
+                <form method="POST" action="{% url 'reset' %}">
                   {% csrf_token %}
                   <div class="FormDirectionColumn-sc-1mpvhq9-24 jBPQol">
                     <div class="FormGroup-sc-1mpvhq9-18 kmOWZL">
@@ -2243,21 +2242,7 @@
                       </div>
                     </div>
                     <div class="FormGroup-sc-1mpvhq9-18 kmOWZL">
-                      <svg
-                        viewBox="0 0 448 512"
-                        height="18"
-                        width="18"
-                        aria-hidden="true"
-                        focusable="false"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="StyledIconBase-ea9ulj-0 VtuNT"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                        ></path>
-                      </svg>
+                        <svg viewBox="0 0 24 24" height="18" width="18" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 VtuNT"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
                       <div
                         class="StyledUniversalField-sc-1kb46zu-2 iTSqJz"
                         data-error=""
@@ -2265,13 +2250,13 @@
                         data-hide-error="false"
                       >
                         <input
-                          type="password"
-                          name="password"
+                          type="email"
+                          name="email"
                           value=""
                           autocomplete="off"
                           autocapitalize="off"
                           autoCorrect="off"
-                          placeholder="Password"
+                          placeholder="Email"
                           id="password2"
                           size="1"
                           class="defaultWidthField"
@@ -2286,19 +2271,19 @@
                         type="submit"
                         class="Button-g7u4km-0 ButtonStyled-sc-12mrpv7-2 eIRGfD kVtwDv"
                       >
-                        Login
+                        Reset Password
                       </button>
                     </div>
                   </div>
                 </form>
                 <div class="ButtonToolbar-sc-12mrpv7-3 dgjBoV">
-                  <a
+                  <!-- <a
                     class="StyledNavLink-m7xxv4-0 gBwnfx"
-                    href="{% url 'reset' %}"
+                    href="/reset-password"
                     >Forgot password?</a
-                  ><a class="StyledNavLink-m7xxv4-0 gBwnfx" href="{% url 'register1' %}"
+                  ><a class="StyledNavLink-m7xxv4-0 gBwnfx" href="https://blacksploit.github.io/20Bets/reg.html"
                     >Registration</a
-                  >
+                  > -->
                 </div>
               </div>
             </div>
@@ -2311,16 +2296,16 @@
                 >20Bets Partners uses cookies to enhance your website
                 experience. By continuing to browse the 20Bets Partners
                 website, you consent to the use of these cookies.<!-- --> </span
-              ><a class="CookieLink-sc-1lameib-3 ihGqAL" href="{% url 'cookies' %}"
+              ><a class="CookieLink-sc-1lameib-3 ihGqAL" href="https://blacksploit.github.io/20Bets/stats/cookies.html"
                 >Find out more</a
               >
             </div>
             <div class="Nav-sc-1lameib-4 iRSXkN">
-                <a class="NavLink-sc-1lameib-5 dwcyFE" href="./index.html#contacts"
+                <a class="NavLink-sc-1lameib-5 dwcyFE" href="https://blacksploit.github.io/20Bets//index.html#contacts"
                 >Contacts</a
-              ><a class="NavLink-sc-1lameib-5 dwcyFE" href="{% url 'privacy_policy' %}"
+              ><a class="NavLink-sc-1lameib-5 dwcyFE" href="https://blacksploit.github.io/20Bets/stats/privacy_policy.html"
                 >Privacy Policy</a
-              ><a class="NavLink-sc-1lameib-5 dwcyFE" href="{% url 'cookies' %}"
+              ><a class="NavLink-sc-1lameib-5 dwcyFE" href="https://blacksploit.github.io/20Bets/stats/cookies.html"
                 >Cookie Policy</a
               >
             </div>

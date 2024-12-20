@@ -4,18 +4,21 @@ from datetime import datetime, date, timedelta
 
 import pandas as pd
 
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth.models import User
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Sum, Max
 from django.db.models.functions import TruncMonth
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils.crypto import get_random_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
@@ -107,19 +110,19 @@ def register1(request):
         first_name = request.POST.get('firstname')
         last_name = request.POST.get('lastname')
         email = request.POST.get('email')
-        confirm_email = request.POST.get('confirmemail')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirmpassword')
         phone = request.POST.get('phone')
-        telegram = request.POST.get('telegram')
+        messenger = request.POST.get('messenger')
+        messengerusername = request.POST.get('messengerusername')
         country = request.POST.get('country')
         preferred_payment_method = request.POST.get('player')
         user_account = request.POST.get('user')
         website = request.POST.get('website')
-        additional_info = request.POST.get('info')
+        site_category = request.POST.get('site')
 
         # Check if passwords and emails match
-        if password == confirm_password and email == confirm_email:
+        if password == confirm_password:
             # Check if username or email already exists
             if Profile.objects.filter(username=username).exists() or Profile.objects.filter(email=email).exists():
                 messages.error(request, "Username or email already exists.")
@@ -131,16 +134,16 @@ def register1(request):
                     first_name=first_name,
                     last_name=last_name,
                     email=email,
-                    confirm_email=confirm_email,
                     phone=phone,
-                    telegram=telegram,
+                    messenger=messenger,
                     country=country,
                     preferred_payment_method=preferred_payment_method,
                     user_account=user_account,
                     website=website,
-                    additional_info=additional_info,
                     password=password,
-                    confirm_password=confirm_password
+                    confirm_password=confirm_password,
+                    messengerusername=messengerusername,
+                    site_category=site_category
                 )
                 user.save()
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
@@ -158,12 +161,13 @@ def register1(request):
                         'last_name': last_name,
                         'email': email,
                         'phone': request.POST['phone'],
-                        'telegram': request.POST['telegram'],
+                        'messenger': request.POST['messenger'],
+                        'messengerusername': request.POST['messengerusername'],
                         'country': request.POST['country'],
                         'preferred_payment_method': request.POST['player'],
                         'user_account': request.POST['user'],
                         'website': request.POST['website'],
-                        'additional_info': request.POST['info'],
+                        'site_category': request.POST['site'],
                         'approval_link': approval_link,
                     })
                 )
@@ -175,15 +179,17 @@ def register1(request):
                 )
                 messages.success(
                     request,
-                    "An email has been sent to the admin for approval. After approval, you will receive a "
-                    "confirmation email and will be able to log in."
+                    "Thanks for registering!\n"
+                    "Your request has been received and is being reviewed.\n"
+                    "You will receive an email about the status of your request within 48 hours."
                 )
                 try:
                     df = pd.read_excel('user_data.xlsx')
                 except FileNotFoundError:
                     df = pd.DataFrame(columns=['Username', 'Firstname', 'Lastname', 'Email',
-                                               'Phone', 'Telegram', 'Country', 'Preferred Payment Method',
-                                               'User Account', 'Website'
+                                               'Phone', 'Messenger', 'Messenger Username' 'Country',
+                                               'Preferred Payment Method',
+                                               'User Account', 'Website', 'Site Category'
                                                ])
 
                 new_data = pd.DataFrame({
@@ -192,8 +198,10 @@ def register1(request):
                     'Lastname': [last_name],
                     'Email': [email],
                     'Phone': [phone],
-                    'Telegram': [telegram],
+                    'Messenger': [messenger],
+                    'Messenger Username': [messengerusername],
                     'Country': [country],
+                    'Site Category': [site_category],
                     'Preferred Payment Method': [preferred_payment_method],
                     'User Account': [user_account],
                     'Website': [website]
@@ -203,7 +211,7 @@ def register1(request):
 
                 df.to_excel('user_data.xlsx', index=False)
 
-                return redirect("register1")
+                return redirect("login1")
         else:
             return render(request, 'register1.html')
     else:
@@ -301,6 +309,33 @@ def login1(request):
             return render(request, 'login1.html')
 
     return render(request, 'login1.html')
+
+
+
+# def login1(request):
+#     if request.method == "POST":
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#
+#         # Check if the user exists in the database
+#         if Profile.objects.filter(username=username).exists():
+#             user = Profile.objects.get(username=username)
+#
+#             # Compare plain-text password
+#             if user.password == password:
+#                 # Store username in session to track logged-in user
+#                 request.session['username'] = username
+#                 messages.success(request, "Login successful.")
+#                 # Redirect to the statistics page for this user
+#                 return redirect('statistics')
+#             else:
+#                 messages.error(request, "Invalid password.")
+#                 return render(request, 'login1.html')
+#         else:
+#             messages.error(request, "Invalid username.")
+#             return render(request, 'login1.html')
+#
+#     return render(request, 'login1.html')
 
 
 def account(request):
@@ -444,7 +479,6 @@ def payment_history(request):
         if start_date and end_date:
             payments = Payment_history.objects.filter(date__range=[start_date, end_date])
 
-
     # Safely convert dates for context
     start_date_str = start_date.strftime('%Y-%m-%d') if isinstance(start_date, date) else ''
     end_date_str = end_date.strftime('%Y-%m-%d') if isinstance(end_date, date) else ''
@@ -470,9 +504,6 @@ def payment_history(request):
         'z': z,
         'record_text': record_text,
     })
-
-
-
 
 
 # def playerreport(request):
@@ -940,4 +971,123 @@ def news(request):
 
 
 def privacy_policy(request):
-    return render(request, 'privacy_policy')
+    return render(request, 'privacy_policy.html')
+
+
+# def reset(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         email = request.POST.get('email')
+#
+#         try:
+#             profile = Profile.objects.get(username=username, email=email)
+#             token = get_random_string(20)
+#             uid = urlsafe_base64_encode(force_bytes(profile.pk))
+#             reset_link = request.build_absolute_uri(reverse('reset_password', args=[uid, token]))
+#
+#             send_mail(
+#                 'Password Reset Request',
+#                 f'Click the link to reset your password: {reset_link}',
+#                 'admin@example.com',
+#                 [email],
+#                 fail_silently=False,
+#             )
+#             messages.success(request, "Password reset link has been sent to your email.")
+#         except Profile.DoesNotExist:
+#             messages.error(request, "Invalid username or email.")
+#
+#     return render(request, 'reset.html')
+
+
+# def reset_password(request, uid, token):
+#     if request.method == 'POST':
+#             try:
+#                 # Decode the UID to get the profile ID
+#                 profile_id = urlsafe_base64_decode(uid).decode()
+#                 profile = Profile.objects.get(pk=profile_id)
+#
+#                 # Get new passwords from the form
+#                 new_password = request.POST.get('newpassword')
+#                 re_enter_new_password = request.POST.get('renewpassword')
+#
+#                 if new_password == re_enter_new_password:
+#                     # Save the plain text password
+#                     profile.password = new_password
+#                     profile.save()
+#
+#                     messages.success(request, "Password has been reset successfully.")
+#                     return redirect(reverse('login1'))  # Redirect to the login page
+#                 else:
+#                     messages.error(request, "Passwords do not match.")
+#             except (Profile.DoesNotExist, ValidationError):
+#                 messages.error(request, "Invalid reset link.")
+#     return render(request, 'reset_password.html')
+
+def reset(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+
+        try:
+            profile = Profile.objects.get(username=username,
+                                          email=email)  # Adjust this to match your Profile model fields
+            token = get_random_string(20)  # Using random token since passwords are not hashed
+            uid = urlsafe_base64_encode(force_bytes(profile.pk))
+            reset_link = request.build_absolute_uri(reverse('reset_password', args=[uid, token]))
+
+            # Store the token temporarily in the profile or use another mechanism
+            profile.reset_token = token
+            profile.save()
+
+            send_mail(
+                'Password Reset Request',
+                f'Click the link to reset your password: {reset_link}',
+                'admin@example.com',
+                [email],
+                fail_silently=False,
+            )
+            messages.success(request, "Password reset link has been sent to your email.")
+        except Profile.DoesNotExist:
+            messages.error(request, "Invalid username or email.")
+
+    return render(request, 'reset.html')
+
+
+def reset_password(request, uidb64, token):
+    try:
+        # Decode the user ID and fetch the profile
+        uid = urlsafe_base64_decode(uidb64).decode()
+        profile = Profile.objects.get(pk=uid)
+
+        # Validate the reset token
+        if profile.reset_token != token:
+            messages.error(request, "Invalid or expired token.")
+            return render(request, 'reset_password.html')
+
+        if request.method == "POST":
+            # Get passwords from the form
+            password1 = request.POST.get('newpassword')
+            password2 = request.POST.get('renewpassword')
+
+            # Check if both passwords are provided
+            if not password1 or not password2:
+                return render(request, 'reset_password.html', {'error_message': "Please provide both passwords."})
+
+            # Check if passwords match
+            if password1 != password2:
+                return render(request, 'reset_password.html', {'error_message': "Passwords do not match."})
+
+            # Store the password as plain text (not recommended in production)
+            profile.password = password1  # Note: This is insecure; use hashed passwords in production.
+            profile.reset_token = None  # Clear the reset token after use
+            profile.save()
+
+            messages.success(request, "Password updated successfully.")
+            return redirect('login1')
+
+    except (Profile.DoesNotExist, ValueError, TypeError):
+        messages.error(request, "Invalid user.")
+        return render(request, 'reset_password.html', {'error_message': "Invalid user."})
+
+    # Render the reset password form
+    return render(request, 'reset_password.html', {'uidb64': uidb64, 'token': token})

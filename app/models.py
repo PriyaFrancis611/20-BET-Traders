@@ -14,16 +14,17 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=100, default='')
     last_name = models.CharField(max_length=100, default='')
     email = models.EmailField(default='')
-    confirm_email = models.EmailField(default='')
     password = models.CharField(max_length=100, default='')
     confirm_password = models.CharField(max_length=100, default='')
     phone = models.IntegerField()
-    telegram = models.CharField(max_length=100, default='')
+    messenger = models.CharField(max_length=100, default='')
+    messengerusername = models.CharField(max_length=100,default='')
     country = models.CharField(max_length=100, default='')
     preferred_payment_method = models.CharField(max_length=100, default='')
     user_account = models.CharField(max_length=100, default='')
     website = models.CharField(max_length=100, default='')
-    additional_info = models.TextField()
+    site_category = models.CharField(max_length=100,default='')
+    reset_token = models.CharField(max_length=20, null=True, blank=True)  # Temporary reset token
     is_approved = models.BooleanField(default=False)
 
     def __str__(self):
