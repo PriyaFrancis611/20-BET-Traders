@@ -5,7 +5,7 @@ from datetime import datetime, date, timedelta
 import pandas as pd
 
 from django.contrib import messages, auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -1221,3 +1221,8 @@ def reset_password(request, uidb64, token):
 
     # Render the reset password form
     return render(request, 'reset_password.html', {'uidb64': uidb64, 'token': token})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login1')

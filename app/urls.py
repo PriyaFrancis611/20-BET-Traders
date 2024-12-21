@@ -28,6 +28,7 @@ urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('reset/', views.reset, name='reset'),
     # path('reset_password/<uid>/<token>/', views.reset_password, name='reset_password'),
-    path('reset_password/<str:uidb64>/<str:token>/', views.reset_password, name='reset_password')
+    path('reset_password/<str:uidb64>/<str:token>/', views.reset_password, name='reset_password'),
+    path('logout_view/',views.logout_view,name='logout_view')
 
 ]
