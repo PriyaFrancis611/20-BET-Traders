@@ -200,7 +200,7 @@ def register1(request):
                     'Phone': [phone],
                     'Messenger': [messenger],
                     'Messenger Username': [messengerusername],
-                    'Country': [country],
+                    'Country': 'India',
                     'Site Category': [site_category],
                     'Preferred Payment Method': [preferred_payment_method],
                     'User Account': [user_account],
@@ -211,7 +211,7 @@ def register1(request):
 
                 df.to_excel('user_data.xlsx', index=False)
 
-                return redirect("login1")
+                return redirect("register1")
         else:
             return render(request, 'register1.html')
     else:
@@ -236,14 +236,10 @@ def approve_user(request, uid):
             recipient_list=[user.email],
         )
 
-        # Display success message
-        messages.success(request, "User approved successfully.")
         return HttpResponse("User approved successfully!")
     except Profile.DoesNotExist:
-        messages.error(request, "User not found.")
         return HttpResponse("User not found.")
     except Exception as e:
-        messages.error(request, f"An error occurred: {str(e)}")
         return HttpResponse("Error occurred.")
 
 
@@ -311,7 +307,6 @@ def login1(request):
     return render(request, 'login1.html')
 
 
-
 # def login1(request):
 #     if request.method == "POST":
 #         username = request.POST.get('username')
@@ -339,77 +334,109 @@ def login1(request):
 
 
 def account(request):
-    # Fetch the first profile (or remove this if not needed)
-    x = Profile.objects.all()[:1]
-    y = Id.objects.all()
-
+    # Check if the user is logged in
     if 'username' not in request.session:
         messages.error(request, "You need to log in first.")
         return redirect('login1')
 
     username = request.session['username']
     try:
+        # Get the profile of the logged-in user
         profile = Profile.objects.get(username=username)
     except Profile.DoesNotExist:
         messages.error(request, "Profile not found.")
         return redirect('login1')
 
+    # Filter x and y variables by the logged-in user
+    x = Profile.objects.filter(username=username)
+    y = Id.objects.filter(user=profile)
+
     if request.method == 'POST' and 'change_password' in request.POST:
-        old_password = request.POST.get('Old_pass')
-        new_password = request.POST.get('New_pass')
-        repeat_password = request.POST.get('repeat')
+        old_password = request.POST.get('Old_pass').strip()
+        new_password = request.POST.get('New_pass').strip()
+        repeat_password = request.POST.get('repeat').strip()
 
         # Debugging the incoming data
         print("Old Password:", old_password)  # Print the old password for debugging
         print("New Password:", new_password)  # Print the new password
         print("Repeat Password:", repeat_password)  # Print repeat password
 
+        # Validation checks
         if not old_password or not new_password or not repeat_password:
             messages.error(request, "All fields are required.")
         else:
-            old_password = old_password.strip()
-            new_password = new_password.strip()
-            repeat_password = repeat_password.strip()
-
-            if not old_password:  # Check if it is empty even after strip()
-                messages.error(request, "Old password is required.")
+            if profile.password != old_password:
+                messages.error(request, "Old password is incorrect.")
+            elif new_password != repeat_password:
+                messages.error(request, "New passwords do not match.")
+            elif len(new_password) < 8:
+                messages.error(request, "New password must be at least 8 characters long.")
             else:
-                if profile.password != old_password:
-                    messages.error(request, "Old password is incorrect.")
-                elif new_password != repeat_password:
-                    messages.error(request, "New passwords do not match.")
-                elif len(new_password) < 8:
-                    messages.error(request, "New password must be at least 8 characters long.")
-                else:
-                    # Update the password
-                    profile.password = new_password
-                    profile.save()
-                    messages.success(request, "Password changed successfully.")
-                    return redirect('account')
+                # Update the password
+                profile.password = new_password
+                profile.save()
+                messages.success(request, "Password changed successfully.")
+                return redirect('account')
 
-    return render(request, 'account.html', {'x': x, 'y': y, 'profile': profile})
+    return render(request, 'account.html', {
+        'x': x,
+        'y': y,
+        'profile': profile,
+    })
 
 
 def aff_links(request):
-    x = Profile.objects.all()
-    y = Id.objects.all()
-    z = Website.objects.all()
-    profiles = Profile.objects.values('website').distinct()
-    return render(request, 'aff_links.html', {'x': x, 'y': y, 'profiles': profiles, 'z': z})
+    if 'username' not in request.session:
+        messages.error(request, "You need to log in first.")
+        return redirect('login1')
+
+    username = request.session['username']
+    try:
+        # Get the profile of the logged-in user
+        profile = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Profile not found.")
+        return redirect('login1')
+
+    # Filter x, y, and z variables based on the logged-in user
+    x = Profile.objects.filter(username=username)
+    y = Id.objects.filter(user=profile)
+    z = Website.objects.filter(user=profile)  # Assuming the Website model has a relation with the user
+    profiles = Profile.objects.filter(username=username).values('website').distinct()
+
+    return render(request, 'aff_links.html', {
+        'x': x,
+        'y': y,
+        'profiles': profiles,
+        'z': z,
+    })
 
 
 def commission_structure(request):
-    y = Id.objects.all()
+    # Fetch the user associated with the session
+    username = request.session.get('username')
+
+    try:
+        user = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Invalid session data.")
+        return render(request, 'commission_structure.html', {
+            'message': "Invalid session data.",
+        })
+
+    # Fetch all IDs for the user
+    y = Id.objects.filter(user=user)
 
     # Fetch today's data for Commission_structure
     today = date.today()
-    x = Commission_structure.objects.filter(date=today)
+    x = Commission_structure.objects.filter(user=user, date=today)
 
     if not x.exists():
         # If no data exists for today, find the most recent date with data
-        most_recent_date = Commission_structure.objects.filter(date__lte=today).aggregate(Max('date'))['date__max']
+        most_recent_date = Commission_structure.objects.filter(user=user, date__lte=today).aggregate(Max('date'))[
+            'date__max']
         if most_recent_date:
-            x = Commission_structure.objects.filter(date=most_recent_date)
+            x = Commission_structure.objects.filter(user=user, date=most_recent_date)
 
     return render(request, 'commission_structure.html', {
         'y': y,
@@ -428,12 +455,23 @@ def media(request):
 
 
 def payment_history(request):
+    # Fetch the user associated with the session
+    username = request.session.get('username')
+
+    try:
+        user = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Invalid session data.")
+        return render(request, 'payment_history.html', {
+            'message': "Invalid session data.",
+        })
+
     # Initialize variables
     payments = Payment_history.objects.none()
-    payments2 = Payment_history2.objects.all()
-    x = Payment_history.objects.filter(date=date.today())
-    z = Payment_history2.objects.filter(time_interval=date.today())
-    y = Id.objects.all()
+    payments2 = Payment_history2.objects.filter(user=user)
+    x = Payment_history.objects.filter(user=user, date=date.today())
+    z = Payment_history2.objects.filter(user=user, time_interval=date.today())
+    y = Id.objects.filter(user=user)  # Filter IDs associated with the user
     start_date = None
     end_date = None
     time_interval = request.GET.get('time_interval', 'exact')
@@ -477,7 +515,7 @@ def payment_history(request):
 
         # Apply filters to payments if dates are valid
         if start_date and end_date:
-            payments = Payment_history.objects.filter(date__range=[start_date, end_date])
+            payments = Payment_history.objects.filter(user=user, date__range=[start_date, end_date])
 
     # Safely convert dates for context
     start_date_str = start_date.strftime('%Y-%m-%d') if isinstance(start_date, date) else ''
@@ -514,11 +552,26 @@ def payment_history(request):
 
 
 def playerreport(request):
-    profiles = Profile.objects.values('website').distinct()
-    y = Id.objects.all()
-    x = Commission_structure.objects.filter(date=datetime.today().date())
-    z = Website.objects.select_related('user').all()
-    a = Player_report.objects.select_related('user').all()
+    # Check if the user is logged in
+    if 'username' not in request.session:
+        messages.error(request, "You need to log in first.")
+        return redirect('login1')
+
+    username = request.session['username']
+    try:
+        # Fetch the logged-in user's profile
+        profile = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Profile not found.")
+        return redirect('login1')
+
+    # Fetch data filtered by the logged-in user
+    profiles = Profile.objects.filter(username=username).values('website').distinct()
+    y = Id.objects.filter(user=profile)
+    x = Commission_structure.objects.filter(user=profile, date=datetime.today().date())
+    z = Website.objects.select_related('user').filter(user=profile)
+    a = Player_report.objects.select_related('user').filter(user=profile)
+
     # Initialize variables
     payments = Summary.objects.none()  # Default to no results
     start_date = None
@@ -564,15 +617,15 @@ def playerreport(request):
 
         # Apply filters if valid dates are provided
         if start_date and end_date:
-            payments = Summary.objects.filter(date__range=[start_date, end_date])
+            payments = Summary.objects.filter(user=profile, date__range=[start_date, end_date])
 
-        # Aggregate data for current and total summaries
+    # Aggregate data for current and total summaries
     current_summary = payments.aggregate(
         sum_of_all_deposits=Sum('sum_of_all_deposits'),
         revenue=Sum('revenue')
     )
 
-    total_summary = Summary.objects.aggregate(
+    total_summary = Summary.objects.filter(user=profile).aggregate(
         sum_of_all_deposits=Sum('sum_of_all_deposits'),
         revenue=Sum('revenue')
     )
@@ -583,9 +636,8 @@ def playerreport(request):
         grouped_payments.setdefault(payment.date, []).append(payment)
 
     # Format dates for template rendering
-    start_date_str = start_date.strftime('%Y-%m-%d') if isinstance(start_date, datetime) or isinstance(start_date,
-                                                                                                       date) else ''
-    end_date_str = end_date.strftime('%Y-%m-%d') if isinstance(end_date, datetime) or isinstance(end_date, date) else ''
+    start_date_str = start_date.strftime('%Y-%m-%d') if isinstance(start_date, (datetime, date)) else ''
+    end_date_str = end_date.strftime('%Y-%m-%d') if isinstance(end_date, (datetime, date)) else ''
 
     return render(request, 'playerreport.html', {
         'y': y,
@@ -603,10 +655,28 @@ def playerreport(request):
 
 
 def promocode(request):
-    profiles = Profile.objects.values('website').distinct()
-    x = Promo_code.objects.all()
-    y = Id.objects.all()
-    return render(request, 'promocode.html', {'y': y, 'profiles': profiles, 'x': x})
+    if 'username' not in request.session:
+        messages.error(request, "You need to log in first.")
+        return redirect('login1')
+
+    username = request.session['username']
+    try:
+        # Get the profile of the logged-in user
+        profile = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Profile not found.")
+        return redirect('login1')
+
+    # Filter data based on the logged-in user
+    profiles = Profile.objects.filter(username=username).values('website').distinct()
+    x = Promo_code.objects.filter(user=profile)  # Assuming Promo_code has a relation with the user
+    y = Id.objects.filter(user=profile)
+
+    return render(request, 'promocode.html', {
+        'y': y,
+        'profiles': profiles,
+        'x': x,
+    })
 
 
 def statistics(request):
@@ -625,23 +695,37 @@ def statistics(request):
     elif time_interval == '1 year':
         start_date = today.replace(year=today.year - 1, month=1, day=1)
 
-    # Fetch data for Main_page
-    main_page_data = Main_page.objects.filter(date=today)
+    # Get the username from the session
+    username = request.session.get('username')
+
+    # Fetch the user associated with the session
+    try:
+        user = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Invalid session data.")
+        return render(request, 'statistics.html', {
+            'time_interval': time_interval,
+            'message': "No data available for today. Showing most recent data."
+        })
+
+    # Fetch data for Main_page filtered by user and date
+    main_page_data = Main_page.objects.filter(user=user, date=today)
 
     if not main_page_data.exists():
-        # If no data exists for today, find the most recent date with data
-        most_recent_date = Main_page.objects.filter(date__lte=today).aggregate(Max('date'))['date__max']
+        # If no data exists for today, find the most recent date with data for this user
+        most_recent_date = Main_page.objects.filter(user=user, date__lte=today).aggregate(Max('date'))['date__max']
         if most_recent_date:
-            main_page_data = Main_page.objects.filter(date=most_recent_date)
+            main_page_data = Main_page.objects.filter(user=user, date=most_recent_date)
 
-    # Fetch data for Summary
-    z = Summary.objects.filter(date=today)
+    # Fetch data for Summary filtered by user and date
+    z = Summary.objects.filter(user=user, date=today)
 
     if not z.exists():
-        # If no data exists for today, find the most recent date with data
-        most_recent_summary_date = Summary.objects.filter(date__lte=today).aggregate(Max('date'))['date__max']
+        # If no data exists for today, find the most recent date with data for this user
+        most_recent_summary_date = Summary.objects.filter(user=user, date__lte=today).aggregate(Max('date'))[
+            'date__max']
         if most_recent_summary_date:
-            z = Summary.objects.filter(date=most_recent_summary_date)
+            z = Summary.objects.filter(user=user, date=most_recent_summary_date)
 
     # Debugging logs for date ranges and data
     print(f"Start Date: {start_date}, Today: {today}")
@@ -650,8 +734,11 @@ def statistics(request):
     print(f"Summary Data: {list(z)}")
 
     if main_page_data.exists():
-        y = Id.objects.all()
-        a = Summary.objects.filter(date__gte=start_date)
+        # Fetch only the Ids associated with this user
+        y = Id.objects.filter(user=user)
+
+        # Fetch summary data for the user from the start date onwards
+        a = Summary.objects.filter(date__gte=start_date, user=user)
 
         # Prepare data for the bar chart
         conversion_data = {
@@ -662,6 +749,7 @@ def statistics(request):
             "new_depositors": a.aggregate(Sum('new_depositors'))['new_depositors__sum'] or 0,
         }
 
+        # Group by month for annotations in the area chart
         a = a.annotate(month=TruncMonth('date')).values('month').annotate(
             registrations_sum=Sum('registrations'),
             commission_sum=Sum('overall_commission')
@@ -707,10 +795,23 @@ def statistics(request):
 
 
 def summary(request):
+    # Check if the user is logged in
+    if 'username' not in request.session:
+        messages.error(request, "You need to log in first.")
+        return redirect('login1')
+
+    username = request.session['username']
+    try:
+        # Fetch the logged-in user's profile
+        profile = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Profile not found.")
+        return redirect('login1')
+
     # Fetch initial data for the context
-    x = Summary.objects.all()
-    y = Id.objects.all()
-    z = Profile.objects.all()
+    x = Summary.objects.filter(user=profile)  # Filter Summary by the logged-in user
+    y = Id.objects.filter(user=profile)  # Filter Id by the logged-in user
+    z = Profile.objects.filter(username=username)  # Get the profile for the logged-in user
     dates = x.values_list('date', flat=True).distinct()
 
     # Initialize variables
@@ -729,14 +830,12 @@ def summary(request):
 
         # Handle time_interval values and set start_date and end_date
         if time_interval == 'exact':
-            # Use user-provided dates
             try:
                 if start_date:
                     start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
                 if end_date:
                     end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
             except ValueError:
-                # Handle invalid date input
                 start_date = end_date = None
         elif time_interval == 'today':
             start_date = end_date = today.date()
@@ -757,19 +856,17 @@ def summary(request):
             start_date = today.replace(year=today.year - 1, month=1, day=1)
             end_date = today.replace(year=today.year - 1, month=12, day=31)
         else:
-            # Parse custom start_date and end_date if provided
             try:
                 if start_date:
                     start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
                 if end_date:
                     end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
             except ValueError:
-                # Handle invalid date format
                 start_date = end_date = None
 
         # Apply filters if valid dates are provided
         if start_date and end_date:
-            payments = Summary.objects.filter(date__range=[start_date, end_date])
+            payments = Summary.objects.filter(user=profile, date__range=[start_date, end_date])
 
     # Aggregate data for the filtered payments (sum of fields)
     total_summary = payments.aggregate(
@@ -813,7 +910,7 @@ def summary(request):
         'start_date': start_date_str,
         'end_date': end_date_str,
         'time_interval': time_interval,
-        'dates': dates
+        'dates': dates,
     })
 
 
@@ -822,11 +919,22 @@ def test(request):
 
 
 def webpages(request):
-    # Fetch all profiles and related objects
-    x = Profile.objects.all()
+    # Fetch all profiles and related objects for the logged-in user
+    username = request.session.get('username')
+
+    # Fetch the user associated with the session
+    try:
+        user = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Invalid session data.")
+        return render(request, 'webpages.html', {
+            'message': "No profiles available for the logged-in user.",
+        })
+
+    # Fetch profiles filtered by the user's website
     profiles = Profile.objects.values('website').distinct()  # Get unique websites only
-    y = Id.objects.all()
-    z = Website.objects.all()
+    y = Id.objects.filter(user=user)  # Filter related IDs based on the user
+    z = Website.objects.filter(user=user)  # Fetch all websites as before
 
     # Get the total number of records (unique websites)
     total_records = profiles.count()
@@ -853,7 +961,7 @@ def webpages(request):
     end_record = min(start_record + current_page.object_list.count() - 1, total_records)
 
     return render(request, 'webpages.html', {
-        'x': x,
+        'x': user,  # Include the logged-in user's profile
         'profiles': current_page,
         'y': y,
         'z': z,
@@ -865,30 +973,46 @@ def webpages(request):
 
 
 def full_report(request):
-    profiles = Profile.objects.values('website').distinct()
-    y = Id.objects.all()
-    x = Summary.objects.filter(date=date.today())  # Data for today's date
-    z = Full_report.objects.all()
+    # Check if the user is logged in via session
+    if 'username' not in request.session:
+        messages.error(request, "You need to log in first.")
+        return redirect('login1')
+
+    username = request.session['username']
+    try:
+        # Fetch the logged-in user's profile
+        profile = Profile.objects.get(username=username)
+    except Profile.DoesNotExist:
+        messages.error(request, "Profile not found.")
+        return redirect('login1')
+
+    # Fetch data based on the logged-in user
+    x = Summary.objects.filter(user=profile)  # Filter Summary by the logged-in user
+    y = Id.objects.filter(user=profile)  # Filter Id by the logged-in user
+    z = Profile.objects.filter(username=username)  # Get the profile for the logged-in user
+    dates = x.values_list('date', flat=True).distinct()
 
     # Initialize variables
-    start_date = request.GET.get('start_date', None)
-    end_date = request.GET.get('end_date', None)
+    payments = Summary.objects.none()  # Start with no results
+    start_date = None
+    end_date = None
     time_interval = request.GET.get('time_interval', '')
-    summaries = Summary.objects.none()  # Default to no data
 
-    # Check if "Generate" button was clicked or time interval is selected
-    if 'generate' in request.GET or time_interval:
+    # Handle time interval and date range for "Generate" functionality
+    if 'generate' in request.GET:
+        # Get input dates from the form
         start_date = request.GET.get('start_date')
         end_date = request.GET.get('end_date')
 
         today = datetime.today()
 
-        # Handle time_interval values and set start_date and end_date
+        # Determine start_date and end_date based on time_interval
         if time_interval == 'exact':
-            # Use provided start_date and end_date for Exact period
             try:
-                start_date = datetime.strptime(start_date, '%Y-%m-%d').date() if start_date else None
-                end_date = datetime.strptime(end_date, '%Y-%m-%d').date() if end_date else None
+                if start_date:
+                    start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+                if end_date:
+                    end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
             except ValueError:
                 start_date = end_date = None
         elif time_interval == 'today':
@@ -910,55 +1034,61 @@ def full_report(request):
             start_date = today.replace(year=today.year - 1, month=1, day=1)
             end_date = today.replace(year=today.year - 1, month=12, day=31)
         else:
-            # Parse custom start_date and end_date if provided
             try:
                 if start_date:
                     start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
                 if end_date:
                     end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
             except ValueError:
-                # Handle invalid date format
                 start_date = end_date = None
 
         # Apply filters if valid dates are provided
         if start_date and end_date:
-            summaries = Summary.objects.filter(date__range=[start_date, end_date])
+            payments = Summary.objects.filter(user=profile, date__range=[start_date, end_date])
 
-    # Aggregate data for current and total summaries
-    current_summary = summaries.aggregate(
+    # Aggregate data for the filtered payments
+    total_summary = payments.aggregate(
+        views=Sum('views'),
+        clicks=Sum('clicks'),
+        direct_links=Sum('direct_links'),
+        clicks_views=Sum('clicks_views'),
         registrations=Sum('registrations'),
+        registration_with_deposits_registration_ratio=Sum('registration_with_deposits_registration_ratio'),
+        total_new_deposit_amount=Sum('total_new_deposit_amount'),
         new_depositors=Sum('new_depositors'),
+        accounts_with_deposits=Sum('accounts_with_deposits'),
         sum_of_all_deposits=Sum('sum_of_all_deposits'),
         revenue=Sum('revenue'),
+        number_of_deposits=Sum('number_of_deposits'),
+        active_players=Sum('active_players'),
+        average_profit_per_player=Sum('average_profit_per_player'),
         bonus_amount=Sum('bonus_amount'),
+        total_rs_commission=Sum('total_rs_commission'),
+        cpa=Sum('cpa'),
+        referral_commission=Sum('referral_commission'),
         overall_commission=Sum('overall_commission')
     )
 
-    total_summary = Summary.objects.aggregate(
-        registrations=Sum('registrations'),
-        new_depositors=Sum('new_depositors'),
-        sum_of_all_deposits=Sum('sum_of_all_deposits'),
-        revenue=Sum('revenue'),
-        bonus_amount=Sum('bonus_amount'),
-        overall_commission=Sum('overall_commission')
-    )
+    # Group payments by date for display
+    grouped_payments = {}
+    for payment in payments:
+        grouped_payments.setdefault(payment.date, []).append(payment)
 
     # Format dates for template rendering
     start_date_str = start_date.strftime('%Y-%m-%d') if start_date else ''
     end_date_str = end_date.strftime('%Y-%m-%d') if end_date else ''
 
-    # Render the template with filtered data
+    # Render the template with combined data
     return render(request, 'full_report.html', {
-        'transactions': summaries,
+        'x': x,
+        'y': y,
+        'z': z,
+        'grouped_payments': grouped_payments,
+        'total_summary': total_summary,
         'start_date': start_date_str,
         'end_date': end_date_str,
-        'current_summary': current_summary,
-        'total_summary': total_summary,
-        'y': y,
-        'profiles': profiles,
-        'x': x,
         'time_interval': time_interval,
-        'z': z
+        'dates': dates,
     })
 
 

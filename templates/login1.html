@@ -2031,8 +2031,53 @@
       ><link rel="stylesheet" href="./public/styles.580aeeb1942d3455536f.css"
     /></noscript>
   </head>
+     <style>
+  <style>
+#login-messages .alert {
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#login-messages .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+}
+
+#login-messages .alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+}
+</style>
 
   <body>
+{% if messages %}
+  <div id="login-messages" class="messages">
+    {% for message in messages %}
+      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+  <script>
+    // Automatically hide login messages after 5 seconds
+    setTimeout(() => {
+      const loginMessages = document.getElementById('login-messages');
+      if (loginMessages) {
+        loginMessages.style.transition = 'opacity 1s';
+        loginMessages.style.opacity = '0';
+        setTimeout(() => {
+          loginMessages.remove(); // Completely remove the element after fading out
+        }, 1000); // 1 second for the fade-out
+      }
+    }, 5000); // 5000 milliseconds = 5 seconds
+  </script>
+{% endif %}
+
     <!-- Content -->
     <div id="root">
       <div class="ContentWrapper-sc-14sggwv-0 cYOodx">

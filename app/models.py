@@ -19,7 +19,7 @@ class Profile(models.Model):
     phone = models.IntegerField()
     messenger = models.CharField(max_length=100, default='')
     messengerusername = models.CharField(max_length=100,default='')
-    country = models.CharField(max_length=100, default='')
+    country = models.CharField(max_length=100, default='India')
     preferred_payment_method = models.CharField(max_length=100, default='')
     user_account = models.CharField(max_length=100, default='')
     website = models.CharField(max_length=100, default='')
